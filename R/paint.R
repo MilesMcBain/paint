@@ -4,6 +4,7 @@ make_painter <- function(colour_funs) {
   pal_length <- length(colour_funs)
   function(char_elem) {
     painted <- colour_funs[[index + 1]](char_elem)
+    if (is.na(char_elem)) painted <- colour_funs[[index + 1]]$inverse(char_elem)
     index <<- (index + 1) %% pal_length
     painted
   }
@@ -18,6 +19,9 @@ rainbow_6 <-
     crayon::magenta,
     crayon::blue
   )
+
+viridis_6 <-
+  lapply(viridisLite::viridis(6), crayon::make_style)
 
 paint_col_head <- function(col, col_name) UseMethod("paint_col_head", col)
 paint_col <- function(col, palette) UseMethod("paint_col", col)
@@ -59,7 +63,7 @@ paint_col_head_template <- function(col_name, type_code) {
 paint.data.frame <- function(df, palette = getOption("paint_palette", rainbow_6)) {
   col_heads <- mapply(paint_col_head, head(df), colnames(df))
   cols <- mapply(paint_col, head(df), MoreArgs = list(palette = palette))
-  if (getOption("paint_align_data", "right") != "none") {
+  if (getOption("paint_align_data", "left") != "none") {
     col_heads <- align_str(col_heads)
   }
   col_lines <- paste0(col_heads, " ", cols)
@@ -78,7 +82,7 @@ paint.default <- function(col, palette) {
 
 align_str <- function(chr) {
   max_width <- max(crayon::col_nchar(chr))
-  crayon::col_align(chr, width = max_width, align = getOption("paint_align_data"))
+  crayon::col_align(chr, width = max_width, align = getOption("paint_align_data", "right"))
 }
 
 crop_lines <- function(lines, max_width) {
@@ -87,7 +91,7 @@ crop_lines <- function(lines, max_width) {
     crayon::col_substring(lines[long_lines], 1, max_width - 1),
     crayon::bold("~")
   )
-	lines
+  lines
 }
 
 function() {
@@ -96,5 +100,11 @@ function() {
   paint(as.data.frame(flights))
   paint(mtcars)
   paint(iris)
+  paint(data.frame(
+    cool = c("a", NA, "c"),
+    stuff = c(1, 2, 3)
+  ))
 
 }
+
+crayon::make_style
