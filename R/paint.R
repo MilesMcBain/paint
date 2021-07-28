@@ -106,5 +106,3 @@ function() {
   ))
 
 }
-
-crayon::make_style
