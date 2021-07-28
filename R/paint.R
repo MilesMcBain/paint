@@ -92,11 +92,11 @@ paint_col_type.Date <- function(col) {
 }
 
 paint_col_type_template <- function(type_code) {
-  crayon::blurred(type_code)
+  crayon::silver(type_code)
 }
 
 paint_head.default <- function(df) {
-  crayon::blurred(
+  crayon::silver(
     trimws(
       capture.output(str(df, max.level = 0, vec.len = 0, indent.str = "", nest.lev = 0)),
       which = "both"
