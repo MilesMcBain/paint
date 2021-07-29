@@ -3,7 +3,11 @@ paint <- function(object, ...) UseMethod("paint", object)
 
 
 #' @export
-paint.data.frame <- function(df, name = NULL, palette = getOption("paint_palette", rainbow_6)) {
+paint.data.frame <- function(
+  df,
+  name = NULL,
+  palette = getOption("paint_palette", rainbow_6)
+) {
   col_types <- lapply(df, paint_col_type)
   col_names <- colnames(df)
   col_dims <- lapply(df, dim)
@@ -23,17 +27,19 @@ paint.data.frame <- function(df, name = NULL, palette = getOption("paint_palette
   name <- paint_name(name)
   header <- trimws(paste(name, paint_head(df))) # the name is used for nested data.frames
   meta <- paint_meta(df)
-  cat(header, "\n") 
+  cat(header, "\n")
   if (!is.null(meta)) cat(meta, "\n")
   cat(col_block, "\n")
 
   # paint nested data frames
   nested_data_frame_idxs <- which(trimws(crayon::strip_style(col_types)) == "df")
-  lapply(nested_data_frame_idxs,
+  lapply(
+    nested_data_frame_idxs,
     function(idx) {
       cat("\n")
-      paint(df[,idx], name = names(df)[idx], palette = palette) 
-  })
+      paint(df[, idx], name = names(df)[idx], palette = palette)
+    }
+  )
   invisible()
 }
 
@@ -73,18 +79,26 @@ function() {
     ) %>%
     paint()
 
-  flights %>% 
-  group_by(year, month) %>%
+  flights %>%
+    group_by(year, month) %>%
+    paint()
+
+  flights %>%
+    group_by(year, month) %>%
+    rowwise() %>%
+    paint()
+
+
+  flights %>%
+    rowwise() %>%
+    paint()
+
+  nz %>%
   paint()
 
-  flights %>% 
-  group_by(year, month) %>%
-  rowwise() %>%
-  paint()
+  tst <- nz
+  st_crs(tst) <- NA_crs_
+  paint(tst)
 
-  
-  flights %>% 
-  rowwise() %>%
-  paint()
 
 }
