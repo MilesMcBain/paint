@@ -103,6 +103,16 @@ paint_col_type.Date <- function(col) {
 }
 
 #' @export
+paint_col_type.logical <- function(col) {
+  paint_col_type_template("lgl")
+}
+
+#' @export
+paint_col_type.default <- function(col) {
+  paint_col_type(class(col)[[1]])
+}
+
+#' @export
 paint_col_type.data.frame <- function(col) {
   paint_col_type_template("df")
 }
