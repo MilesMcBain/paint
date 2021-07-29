@@ -120,9 +120,6 @@ paint.data.frame <- function(df, palette = getOption("paint_palette", rainbow_6)
   cat("\n", header, "\n", col_block, "\n", sep = "")
 }
 
-#' @export
-paint.sf <- function(x) {}
-
 paint.default <- function(object) {
   print(object)
 }
