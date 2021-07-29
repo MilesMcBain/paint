@@ -31,5 +31,8 @@ remotes::install_github("milesmcbain/paint")
 
 ```{r eval = TRUE}
 library(paint)
-mtcars
+```
+
+```{r, eval = TRUE, echo = FALSE}
+knitr::include_graphics("inst/media/paint.png")
 ```
