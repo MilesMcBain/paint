@@ -52,6 +52,7 @@ function() {
   library(sf)
   library(data.table)
   library(spData)
+  library(spDataLarge)
   options(paint_palette = brewer_pastel2_7)
   options(paint_palette = brewer_set3_12)
   options(paint_dark_mode = FALSE)
@@ -100,5 +101,7 @@ function() {
   st_crs(tst) <- NA_crs_
   paint(tst)
 
+  paint(nz)
+  paint(flights)
 
 }
