@@ -43,7 +43,7 @@ brewer_accent_7 <-
 
 
 #' @export
-paint_col_type <- function(col, col_name) UseMethod("paint_col_type", col)
+paint_col_type <- function(col) UseMethod("paint_col_type", col)
 
 #' @export
 paint_col <- function(col, palette) UseMethod("paint_col", col)
@@ -55,10 +55,21 @@ paint <- function(object, ...) UseMethod("paint", object)
 paint_head <- function(object) UseMethod("paint_head")
 
 #' @export
-paint_col.default <- function(col, col_name, palette) {
+paint_col.default <- function(col, palette) {
   painter <- make_painter(palette)
   painted <- paste(unlist(lapply(col, painter)), collapse = " ")
   painted
+}
+
+#' @export
+paint_col.data.frame <- function(col, palette) {
+  paint_head(col)
+}
+
+#' @export
+paint_col.list <- function(col, palette) {
+  col <- crayon::strip_style(unlist(lapply(col, paint_head)))
+  NextMethod()
 }
 
 #' @export
@@ -91,10 +102,22 @@ paint_col_type.Date <- function(col) {
   paint_col_type_template("date")
 }
 
+#' @export
+paint_col_type.data.frame <- function(col) {
+  paint_col_type_template("df")
+}
+
+#' @export
+paint_col_type.list <- function(col) {
+  paint_col_type_template("lst")
+}
+
 paint_col_type_template <- function(type_code) {
   crayon::silver(type_code)
 }
 
+
+#' @export
 paint_head.default <- function(df) {
   crayon::silver(
     trimws(
@@ -141,6 +164,8 @@ crop_lines <- function(lines, max_width) {
 function() {
 
   library(nycflights13)
+  library(tidyverse)
+  library(sf)
   options(paint_palette = brewer_pastel2_7)
   options(paint_palette = brewer_set3_12)
   options(paint_dark_mode = FALSE)
@@ -156,6 +181,9 @@ function() {
     cool = c("a", NA, "c"),
     stuff = c(1, 2, 3)
   ))
-  library(sf)
+
+    iris %>%
+    nest(cols = starts_with("Sepal")) %>%
+    paint()
 
 }
