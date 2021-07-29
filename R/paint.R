@@ -36,6 +36,7 @@ function() {
   library(tidyverse)
   library(sf)
   library(data.table)
+  library(spData)
   options(paint_palette = brewer_pastel2_7)
   options(paint_palette = brewer_set3_12)
   options(paint_dark_mode = FALSE)

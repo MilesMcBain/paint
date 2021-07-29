@@ -25,6 +25,12 @@ paint_col.sfc <- function(col, palette) {
   NextMethod()
 }
 
+#' @export
+paint_col.double <- function(col, palette) {
+	col <- formatC(col, format = "f", digits = 6, drop0trailing = TRUE)
+  NextMethod()
+}
+
 make_painter <- function(colour_funs) {
   index <- 0
   pal_length <- length(colour_funs)
