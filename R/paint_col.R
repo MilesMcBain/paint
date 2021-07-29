@@ -21,6 +21,13 @@ paint_col.tbl_df <- function(col, dim, palette) {
 }
 
 #' @export
+paint_col.array <- function(col, dim, palette) {
+  type <- typeof(col)
+	dims <- paste0("[", paste0(dim, collapse = ", "), "]")
+  crayon::silver(paste(type, dims))
+}
+
+#' @export
 paint_col.list <- function(col, ..., palette) {
   col <- crayon::strip_style(unlist(lapply(col, paint_head)))
   NextMethod()

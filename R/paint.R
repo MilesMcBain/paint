@@ -47,6 +47,7 @@ paint.data.frame <- function(
 
 function() {
 
+  library(paint)
   library(nycflights13)
   library(tidyverse)
   library(sf)
@@ -79,6 +80,14 @@ function() {
       nested_tibble = as_tibble(iris)
     ) %>%
     paint()
+
+  tst <- mtcars %>%
+    mutate(
+      mtcars_mat = as.matrix(mtcars)
+    ) 
+  
+  typeof(tst$mtcars_mat)
+ 
 
   flights %>%
     group_by(year, month) %>%

@@ -55,6 +55,10 @@ paint_col_type.list <- function(col) {
   paint_col_type_template("lst")
 }
 
+#' @export
+paint_col_type.array <- function(col) {
+  paint_col_type_template("arr")
+}
 paint_col_type_template <- function(type_code) {
   crayon::silver(type_code)
 }
