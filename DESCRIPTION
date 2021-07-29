@@ -16,3 +16,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://github.com/MilesMcBain/paint-
 BugReports: https://github.com/MilesMcBain/paint-/issues
+Imports: 
+    crayon,
+    pryr,
+    sf
