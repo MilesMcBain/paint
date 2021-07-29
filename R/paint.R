@@ -30,14 +30,13 @@ paint.data.frame <- function(
   cat(header, "\n")
   if (!is.null(meta)) cat(meta, "\n")
   cat(col_block, "\n")
-
   # paint nested data frames
   nested_data_frame_idxs <- which(trimws(crayon::strip_style(col_types)) == "df")
   lapply(
     nested_data_frame_idxs,
     function(idx) {
       cat("\n")
-      paint(df[, idx], name = names(df)[idx], palette = palette)
+      paint(df[[idx]], name = names(df)[idx], palette = palette)
     }
   )
   invisible()
@@ -77,7 +76,7 @@ function() {
 
   iris %>%
     mutate(
-      nested_tibble = as_tibble(iris)
+      nested_tibble = iris
     ) %>%
     paint()
 
@@ -86,8 +85,21 @@ function() {
       mtcars_mat = as.matrix(mtcars)
     ) 
   
-  typeof(tst$mtcars_mat)
- 
+  tst1 <-  
+  tibble(
+     this = c("1", "2", "3"),
+     that = list(matrix(rep(1,4), nrow = 2), 
+            array(rep(1,3), dim = c(3,3,3)),
+            array(rep(1,2))
+     ) 
+   )
+
+   
+   
+   tst1 %>%
+   mutate(
+     nested_tibble = as_tibble(tst1)
+   ) %>% paint()
 
   flights %>%
     group_by(year, month) %>%
