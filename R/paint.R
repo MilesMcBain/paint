@@ -91,7 +91,8 @@ function() {
      that = list(matrix(rep(1,4), nrow = 2), 
             array(rep(1,3), dim = c(3,3,3)),
             NULL),
-     more = list(NA, NaN, character(100))
+     more = list(NA, Inf, character(100)),
+     and_more = c(1, -Inf, Inf)
      ) 
    
    
