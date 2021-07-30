@@ -23,7 +23,10 @@ paint.data.frame <- function(
   }
   col_lines <- paste0(col_names, " ", col_types, " ", cols)
   cropped_lines <- crop_lines(col_lines, getOption("paint_max_width", 60))
-  col_block <- paste0(cropped_lines, collapse = "\n")
+  col_block <- paste0(
+    sanitise_text(cropped_lines),
+    collapse = "\n"
+  )
   name <- paint_name(name)
   header <- trimws(paste(name, paint_head(df))) # the name is used for nested data.frames
   meta <- paint_meta(df)
@@ -83,23 +86,26 @@ function() {
   tst <- mtcars %>%
     mutate(
       mtcars_mat = as.matrix(mtcars)
-    ) 
-  
-  tst1 <-  
-  tibble(
-     this = c(NA, NaN, 3),
-     that = list(matrix(rep(1,4), nrow = 2), 
-            array(rep(1,3), dim = c(3,3,3)),
-            NULL),
-     more = list(NA, Inf, character(100)),
-     and_more = c(1, -Inf, Inf)
-     ) 
-   
-   
-   tst1 %>%
-   mutate(
-     nested_tibble = as_tibble(tst1)
-   ) %>% paint()
+    )
+
+  tst1 <-
+    tibble(
+      this = c(NA, NaN, 3),
+      that = list(
+        matrix(rep(1, 4), nrow = 2),
+        array(rep(1, 3), dim = c(3, 3, 3)),
+        NULL
+      ),
+      more = list(NA, Inf, character(100)),
+      and_more = c(1, -Inf, Inf)
+    )
+
+
+  tst1 %>%
+    mutate(
+      nested_tibble = as_tibble(tst1)
+    ) %>%
+    paint()
 
   flights %>%
     group_by(year, month) %>%
@@ -116,7 +122,7 @@ function() {
     paint()
 
   nz %>%
-  paint()
+    paint()
 
   tst <- nz
   st_crs(tst) <- NA_crs_
@@ -130,12 +136,18 @@ function() {
   )
 
   # data.table
-  flights <-"https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"
+  flights <- "https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"
   fdt <- fread(flights)
-ans <- fdt[carrier == "AA",
-        .(mean(arr_delay), mean(dep_delay)),
-        keyby = .(origin, dest, month)]
-paint(ans)
-str(ans)
-  
+  ans <- fdt[
+    carrier == "AA",
+    .(mean(arr_delay), mean(dep_delay)),
+    keyby = .(origin, dest, month)
+  ]
+  paint(ans)
+
+  tibble(
+    text = c("word", "line\nbreak", "word"),
+    numbers = c(1, 2, 3)
+  ) %>% paint()
+
 }
