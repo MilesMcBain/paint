@@ -87,12 +87,13 @@ function() {
   
   tst1 <-  
   tibble(
-     this = c("1", "2", NA),
+     this = c(NA, NaN, 3),
      that = list(matrix(rep(1,4), nrow = 2), 
             array(rep(1,3), dim = c(3,3,3)),
-            array(rep(1,2))
+            NULL),
+     more = list(NA, NaN, character(100))
      ) 
-   )
+   
    
    tst1 %>%
    mutate(

@@ -10,38 +10,41 @@ paint_col.default <- function(col, ..., palette) {
 
 #' @export
 paint_col.data.frame <- function(col, dim, palette) {
-	dims <- paste0("[", paste0(dim, collapse = ", "), "]")
-  crayon::silver(paste("data.frame",dims))
+  dims <- paste0("[", paste0(dim, collapse = ", "), "]")
+  crayon::silver(paste("data.frame", dims))
 }
 
 #' @export
 paint_col.tbl_df <- function(col, dim, palette) {
-	dims <- paste0("[", paste0(dim, collapse = ", "), "]")
-  crayon::silver(paste("tibble",dims))
+  dims <- paste0("[", paste0(dim, collapse = ", "), "]")
+  crayon::silver(paste("tibble", dims))
 }
 
 #' @export
 paint_col.array <- function(col, dim, palette) {
   type <- typeof(col)
-	dims <- paste0("[", paste0(dim, collapse = ", "), "]")
+  dims <- paste0("[", paste0(dim, collapse = ", "), "]")
   crayon::silver(paste(type, dims))
 }
 
 #' @export
 paint_col.list <- function(col, ..., palette) {
-  col <- crayon::strip_style(unlist(lapply(col, paint_head)))
+  col_heads <- lapply_safely(col, paint_head)
+  col <- strip_style_safely(col_heads)
   NextMethod()
 }
 
 #' @export
 paint_col.sfc <- function(col, ..., palette) {
-  col <- crayon::strip_style(unlist(lapply(col, paint_head)))
+  col_heads <- lapply_safely(col, paint_head)
+  col <- strip_style_safely(col_heads)
   NextMethod()
 }
 
 #' @export
 paint_col.double <- function(col, ..., palette) {
-	col <- formatC(col, format = "f", digits = 6, drop0trailing = TRUE)
+  formatter <- function(x) formatC(x, format = "f", digits = 6, drop0trailing = TRUE)
+  col <- lapply_safely(col, formatter)
   NextMethod()
 }
 
@@ -52,8 +55,19 @@ make_painter <- function(colour_funs) {
     colour_funs <- lapply(colour_funs, function(x) x$blurred)
   }
   function(char_elem) {
-    painted <- colour_funs[[index + 1]](char_elem)
-    if (is.na(char_elem)) painted <- colour_funs[[index + 1]]$inverse(char_elem)
+    char_elem_was_null <-
+      if (is.null(char_elem)) {
+        char_elem <- "NULL"
+        TRUE
+      } else {
+        FALSE
+      }
+    # have to handle null specially because crayon will turn it into character(0)
+    if (isTRUE(is.na(char_elem)) || is.infinite(char_elem) || char_elem_was_null) {
+      painted <- colour_funs[[index + 1]]$inverse(char_elem)
+    } else{
+      painted <- colour_funs[[index + 1]](char_elem)
+    }
     index <<- (index + 1) %% pal_length
     painted
   }
