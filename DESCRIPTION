@@ -23,3 +23,5 @@ Imports:
     RColorBrewer,
     sf,
     viridisLite
+Suggests: 
+    spData

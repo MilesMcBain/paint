@@ -17,7 +17,7 @@ paint.data.frame <- function(
     col_dims,
     MoreArgs = list(palette = palette)
   )
-  if (getOption("paint_align_metadata", "unset") != "none") {
+  if (getOption("paint_align_row_head", "unset") != "none") {
     col_names <- align_str(col_names)
     col_types <- align_str(col_types)
   }

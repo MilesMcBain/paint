@@ -29,9 +29,9 @@ paint_meta.grouped_df <- function(df) {
 paint_meta.sf <- function(df) {
   geometry_column <- attr(df, "sf_column")
   geometry_column_type <- as.character(unique(sf::st_geometry_type(df))) # could be more than 1
-  crs_code <- st_crs(df)$epsg
-  crs_name <- st_crs(df)$Name
-  crs_units <- st_crs(df)$units_gdal
+  crs_code <- sf::st_crs(df)$epsg
+  crs_name <- sf::st_crs(df)$Name
+  crs_units <- sf::st_crs(df)$units_gdal
 
   crs_string <- if(!is.na(crs_code)) crs_code else NULL
   if (!is.na(crs_name)) crs_string <- paste(crs_string, paste0("(", crs_name, ")"))

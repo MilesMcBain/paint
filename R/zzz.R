@@ -19,7 +19,7 @@ patch_data.table <- function(pkname, pkgpath) {
 }
 
 .onAttach <- function(libname, pkgname) {
-  if (getOption("paint_patch_big_4", FALSE)) {
+  if (getOption("paint_mask_print", FALSE)) {
     patch_data.frame()
     if (isNamespaceLoaded("tibble")) {
       patch_tibble()
@@ -39,9 +39,3 @@ patch_data.table <- function(pkname, pkgpath) {
   }
 }
 
-rainbow_text <- function(msg) {
-  rainbow <- make_painter(getOption("paint_palette", rainbow_6))
-  exploded <- strsplit(msg, "*")[[1]]
-  coloured <- lapply(exploded, rainbow)
-  paste0(coloured, collapse = "") 
-}
