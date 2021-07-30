@@ -50,6 +50,17 @@ paint_meta.sf <- function(df) {
   crayon::silver(meta_string)
 }
 
+#' @export
+paint_meta.data.table <- function(df) {
+  
+  sorted <- data.table::key(df)
+  if (!is.null(sorted)){
+    crayon::silver(paste("keys:", paste0(sorted, collapse = ", ")))
+  } else {
+    NULL
+  }
+}
+
 is_rowwise <- function(x) inherits(x, "rowwise_df")
 null_if_na <- function(x) if (is.na(x)) NULL else x
 red_if_na <- function(x) if(is.na(x)) crayon::red$inverse(x) else x

@@ -129,4 +129,13 @@ function() {
     thing = list(tibble(a = 1, b = 2), tibble(a = 3, b = 4))
   )
 
+  # data.table
+  flights <-"https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"
+  fdt <- fread(flights)
+ans <- fdt[carrier == "AA",
+        .(mean(arr_delay), mean(dep_delay)),
+        keyby = .(origin, dest, month)]
+paint(ans)
+str(ans)
+  
 }
