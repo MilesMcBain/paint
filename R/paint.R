@@ -125,4 +125,8 @@ function() {
   paint(nz)
   paint(flights)
 
+  tibble(
+    thing = list(tibble(a = 1, b = 2), tibble(a = 3, b = 4))
+  )
+
 }
