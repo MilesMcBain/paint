@@ -62,6 +62,7 @@ make_painter <- function(colour_funs) {
       } else {
         FALSE
       }
+    if(length(char_elem) != 1) stop("You gave me element to paint with length > 1")
     # have to handle null specially because crayon will turn it into character(0)
     if (isTRUE(is.na(char_elem)) || is.infinite(char_elem) || char_elem_was_null) {
       painted <- colour_funs[[index + 1]]$inverse(char_elem)

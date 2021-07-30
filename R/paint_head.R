@@ -8,9 +8,14 @@ paint_head <- function(object) UseMethod("paint_head")
 #' @export
 paint_head.default <- function(object) {
 
-  if (length(object) == 0 || isTRUE(is.na(object)) || is.null(object) || is.infinite(object)) {
-    stop("Got passed a non-data object to paint_head")
-  }
+  if (length(object) == 0) {
+	  stop("Got passed a zero length object to paint_head")
+	}
+	if (is_scalar(object)) {
+		if (is.na(object) || is.null(object) || is.infinite(object)) {
+      stop("Got passed a non-data object to paint_head")
+    }
+	}
   paint_head_template(class(object)[[1]], object)
 }
 
