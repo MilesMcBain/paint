@@ -1,7 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="inst/media/paint.png" width="100%" /> \# paint
+<img src="inst/media/paint.png" width="100%" />
+
+# paint
 
 <!-- badges: start -->
 

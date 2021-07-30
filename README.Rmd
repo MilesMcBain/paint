@@ -18,6 +18,7 @@ options(paint_mask_print = FALSE)
 ```{r, eval = TRUE, echo = FALSE}
 knitr::include_graphics("inst/media/paint.png")
 ```
+
 # paint 
 
 <!-- badges: start -->
