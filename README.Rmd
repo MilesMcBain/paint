@@ -26,6 +26,7 @@ knitr::include_graphics("inst/media/paint.png")
 <!-- badges: end -->
 
 An artisanally crafted set of print methods for `data.frame` family rectangles:
+
   * `data.frame`
   * tibble (`tbl_df`)
   * simple features geometry collection (`sf`)
@@ -65,8 +66,9 @@ options(
 )
 library(paint)
 library(tibble)
+library(sf)
+library(spData)
 coffee_data
-
 ```
 
 ### Customising

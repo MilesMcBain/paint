@@ -12,8 +12,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 An artisanally crafted set of print methods for `data.frame` family
-rectangles: \* `data.frame` \* tibble (`tbl_df`) \* simple features
-geometry collection (`sf`) \* `data.table`
+rectangles:
+
+  - `data.frame`
+  - tibble (`tbl_df`)
+  - simple features geometry collection (`sf`)
+  - `data.table`
 
 ## Installation
 
@@ -59,6 +63,9 @@ library(paint)
 #> {paint} masked print.tbl_df
 #> {paint} masked print.sf
 library(tibble)
+library(sf)
+#> Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
+library(spData)
 coffee_data
 #> tibble [47, 3] 
 #> name_long              chr Angola Bolivia Brazil Burundi Ca~
