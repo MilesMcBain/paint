@@ -36,7 +36,7 @@ paint_col.list <- function(col, ..., palette) {
 
 #' @export
 paint_col.sfc <- function(col, ..., palette) {
-  col_heads <- lapply_safely(col, paint_head)
+  col_heads <- lapply(col, paint_head)
   col <- strip_style_safely(col_heads)
   NextMethod()
 }
