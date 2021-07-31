@@ -87,8 +87,8 @@ Supported options:
   - `paint_max_width` the maximum width of the output. 60 is the
     default. `{paint}` does not resize based on terminal width by
     design.
-  - `paint_align_row_head = c("left", "center", "right"). How to align
-    the column title and type. Defaults to`“left”\`.
+  - `paint_align_row_head = c("left", "center", "right")`. How to align
+    the column title and type. Defaults to `"left"`.
   - `paint_dark_mode` darken the `paint_palette` using `crayon::blurred`
     - not supported in all terminals.
   - `paint_mask_print` mask the print() methods of supported dataframes
