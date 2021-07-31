@@ -127,11 +127,12 @@ scope of this document.
 
 ## Design
 
-`{paint}` is a response to long held frustrations with standard print
-methods. It tries to be less noisy, harnessing the eye’s ability to see
-colour patterns to reduce markup characters. Only the most important
-information for data wrangling is highlighted, the pinnacle being the
-column names, which always appear down the left and are never truncated.
+`{paint}` is a response to my frustrations with standard print methods
+on large rectangles. It tries to be less noisy, harnessing the eye’s
+ability to see colour patterns to reduce markup characters. Only the
+most important information for data wrangling is highlighted, the
+pinnacle being the column names, which always appear down the left and
+are never truncated.
 
 Important issues with the data, e.g. sticky `dplyr` groups, or missing
 values, are highlighted to draw extra attention.
