@@ -23,6 +23,9 @@ paint_head.default <- function(object) {
 paint_head.tbl_df <- function(object) paint_head_template("tibble", object)
 
 #' @export
+paint_head.tbl_ts <- function(object) paint_head_template("tsibble", object)
+
+#' @export
 paint_head.sf <- function(object) paint_head_template("sf", object)
 
 #' @export

@@ -120,7 +120,8 @@ function() {
   flights %>%
     rowwise() %>%
     paint()
-
+  
+  options(paint_max_width = Inf, paint_n_rows = 7)
   nz %>%
     paint()
 
@@ -149,5 +150,21 @@ function() {
     text = c("word", "line\nbreak", "word"),
     numbers = c(1, 2, 3)
   ) %>% paint()
+ 
+  # tsibble
+  library(tsibble)
+  weather <- nycflights13::weather %>% 
+  select(origin, time_hour, temp, humid, precip)
+  weather
 
+  weather_tsbl <- as_tsibble(weather, key = origin)
+  tsibble::key(weather_tsbl)
+  tsibble::index(weather_tsbl)
+  int <- tsibble::interval(weather_tsbl)
+  vctrs::fields(int)
+  attributes(weather_tsbl)
+  
+  weather_tsbl %>%
+    group_by(precip) %>%
+    class()
 }

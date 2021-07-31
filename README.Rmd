@@ -31,6 +31,7 @@ An artisanally crafted set of print methods for `data.frame` family rectangles:
   * tibble (`tbl_df`)
   * simple features geometry collection (`sf`)
   * `data.table`
+  * `tsibble`
 
 ## Installation
 
