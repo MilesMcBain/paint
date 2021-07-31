@@ -6,7 +6,7 @@ paint <- function(object, ...) UseMethod("paint", object)
 paint.data.frame <- function(
   df,
   name = NULL,
-  palette = getOption("paint_palette", rainbow_6)
+  palette = getOption("paint_palette", rainbow_6())
 ) {
   col_types <- lapply(df, paint_col_type)
   col_names <- colnames(df)
@@ -56,12 +56,12 @@ function() {
   library(data.table)
   library(spData)
   library(spDataLarge)
-  options(paint_palette = brewer_pastel2_7)
-  options(paint_palette = brewer_set3_12)
+  options(paint_palette = brewer_pastel2_7())
+  options(paint_palette = brewer_set3_12())
   options(paint_dark_mode = FALSE)
-  options(paint_palette = viridis_6)
-  options(paint_palette = rainbow_6)
-  options(paint_palette = brewer_accent_7)
+  options(paint_palette = viridis_6())
+  options(paint_palette = rainbow_6())
+  options(paint_palette = brewer_accent_7())
   options(paint_align_metadata = "right")
   paint(as.data.frame(flights))
   paint(flights)
@@ -158,13 +158,7 @@ function() {
   weather
 
   weather_tsbl <- as_tsibble(weather, key = origin)
-  tsibble::key(weather_tsbl)
-  tsibble::index(weather_tsbl)
-  int <- tsibble::interval(weather_tsbl)
-  vctrs::fields(int)
-  attributes(weather_tsbl)
-  
+  weather_tsbl
   weather_tsbl %>%
-    group_by(precip) %>%
-    class()
+    group_by(precip)
 }

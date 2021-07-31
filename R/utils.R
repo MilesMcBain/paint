@@ -6,7 +6,7 @@ sanitise_text <- function(x) {
 
 #' @export
 rainbow_text <- function(msg) {
-  rainbow <- make_painter(getOption("paint_palette", rainbow_6))
+  rainbow <- make_painter(getOption("paint_palette", rainbow_6()))
   exploded <- strsplit(msg, "*")[[1]]
   coloured <- lapply(exploded, rainbow)
   paste0(coloured, collapse = "") 

@@ -26,5 +26,6 @@ Suggests:
     tibble,
     tsibble,
     data.table,
-    sf
-    
+    sf,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

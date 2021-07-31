@@ -79,7 +79,7 @@ coffee_data
 Supported options:
 
   - `paint_palette` the palette to paint row colours with, defaults to
-    `rainbow_6`, 6 standard ANSI colours that are supported in most
+    `rainbow_6()`, 6 standard ANSI colours that are supported in most
     terminals.
   - `paint_n_rows` the number of rows to print for each column. Defaults
     to the number of colours in the `paint_palette`, but can be set
