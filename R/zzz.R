@@ -1,20 +1,20 @@
 patch_data.frame <- function(pkgname, pkgpath) {
-  assign("print.data.frame", paint, .GlobalEnv)
+  .S3method("print", "data.frame", paint)
   packageStartupMessage(rainbow_text("{paint} masked print.data.frame"))
 }
 
 patch_tibble <- function(pkgname, pkgpath) {
-  assign("print.tbl_df", paint, .GlobalEnv)
+  .S3method("print", "tbl_df", paint)
   packageStartupMessage(rainbow_text("{paint} masked print.tbl_df"))
 }
 
 patch_sf <- function(pkgname, pkgpath) {
-  assign("print.sf", paint, .GlobalEnv)
+  .S3method("print", "sf", paint)
   packageStartupMessage(rainbow_text("{paint} masked print.sf"))
 }
 
 patch_data.table <- function(pkname, pkgpath) {
-  assign("print.data.table", paint, .GlobalEnv)
+  .S3method("print", "data.table", paint)
   packageStartupMessage(rainbow_text("{paint} masked print.data.table"))
 }
 

@@ -86,16 +86,28 @@ paint_meta.tbl_ts <- function(df, incoming = NULL) {
   interval <-
     if (tsibble::is_regular(df)) format(tsibble::interval(df)) else "irregular"
 
-  meta_data <- paste0(
-    "key: ", key, "\n",
-    "index: ", index, " [", interval, "]"
-  )
-  incoming <- paste0(
-    incoming,
-    "\n",
-    crayon::silver(meta_data)
-  )
-
+  meta_data <-
+    crayon::silver(
+      paste0(
+        "key: ",
+        key,
+        "\n",
+        "index: ",
+        index,
+        " [",
+        interval,
+        "]"
+      )
+    )
+  incoming <- if (!is.null(incoming)) {
+    paste0(
+      incoming,
+      "\n",
+      meta_data
+    )
+  } else {
+    meta_data
+  }
   NextMethod(incoming = incoming) # fall through to tbl_df
 }
 

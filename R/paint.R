@@ -48,7 +48,7 @@ paint.data.frame <- function(
 
 
 function() {
-
+  library(conflicted)
   library(paint)
   library(nycflights13)
   library(tidyverse)
