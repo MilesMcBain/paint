@@ -6,7 +6,7 @@ paint <- function(object, ...) UseMethod("paint", object)
 paint.data.frame <- function(
   df,
   name = NULL,
-  palette = getOption("paint_palette", rainbow_6())
+  palette = getOption("paint_palette", rainbow_6()  )
 ) {
   col_types <- lapply(df, paint_col_type)
   col_names <- colnames(df)
@@ -161,4 +161,43 @@ function() {
   weather_tsbl
   weather_tsbl %>%
     group_by(precip)
+
+
+  # vectors
+  library(vctrs)
+  latlon <- function(lat, lon) {
+  new_rcrd(list(lat = lat, lon = lon), class = "earth_latlon")
 }
+
+#' @export
+format.earth_latlon <- function(x, ..., formatter = deg_min) {
+  x_valid <- which(!is.na(x))
+
+  lat <- field(x, "lat")[x_valid]
+  lon <- field(x, "lon")[x_valid]
+
+  ret <- rep(NA_character_, vec_size(x))
+  ret[x_valid] <- paste0(formatter(lat, "lat"), " ", formatter(lon, "lon"))
+  # It's important to keep NA in the vector!
+  ret
+}
+
+deg_min <- function(x, direction) {
+  pm <- if (direction == "lat") c("N", "S") else c("E", "W")
+
+  sign <- sign(x)
+  x <- abs(x)
+  deg <- trunc(x)
+  x <- x - deg
+  min <- round(x * 60)
+
+  # Ensure the columns are always the same width so they line up nicely
+  ret <- sprintf("%d°%.2d'%s", deg, min, ifelse(sign >= 0, pm[[1]], pm[[2]]))
+  format(ret, justify = "right")
+}
+
+library(tidyverse)
+tibble(coords = latlon(c(32.71, 2.95, NA), c(-117.17, 1.67, NA))) 
+latlon(c(32.71, 2.95), c(-117.17, 1.67)) %>% format()
+}
+

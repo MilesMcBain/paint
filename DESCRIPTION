@@ -20,6 +20,7 @@ Imports:
     crayon,
     pryr,
     RColorBrewer,
+    vctrs,
     viridisLite
 Suggests: 
     spData,

@@ -11,3 +11,8 @@ rainbow_text <- function(msg) {
   coloured <- lapply(exploded, rainbow)
   paste0(coloured, collapse = "") 
 }
+
+is_infinite_safely <- function(x) {
+  tryCatch(is.infinite(x), error = function(e) FALSE)
+} 
+

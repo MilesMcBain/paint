@@ -3,9 +3,19 @@ paint_col <- function(col, ..., palette) UseMethod("paint_col", col)
 
 #' @export
 paint_col.default <- function(col, ..., palette) {
+  things_to_flag <- lapply(col, flag_item)
   painter <- make_painter(palette)
-  painted <- paste(unlist(lapply(col, painter)), collapse = " ")
+  painted <- paste(unlist(purrr::map2(col, things_to_flag, painter)), collapse = " ")
   painted
+}
+
+#' @export
+paint_col.vctrs_vctr <- function(col, ..., palette) {
+  formatted <- format(col)
+  # vctrs wants formatted cols to be the same width, so we remove extra space here:
+  sanitised_formatted <- gsub("\\s{2,}", " ", formatted)
+  col <- sanitised_formatted
+  NextMethod()
 }
 
 #' @export
@@ -54,17 +64,10 @@ make_painter <- function(colour_funs) {
   if (getOption("paint_dark_mode", FALSE)) {
     colour_funs <- lapply(colour_funs, function(x) x$blurred)
   }
-  function(char_elem) {
-    char_elem_was_null <-
-      if (is.null(char_elem)) {
-        char_elem <- "NULL"
-        TRUE
-      } else {
-        FALSE
-      }
+  function(char_elem, paint_flag = FALSE) {
+    if (is.null(char_elem)) char_elem <- "NULL" # crayon turns these to character(0)
     if(length(char_elem) != 1) stop("You gave me element to paint with length > 1")
-    # have to handle null specially because crayon will turn it into character(0)
-    if (isTRUE(is.na(char_elem)) || is.infinite(char_elem) || char_elem_was_null) {
+    if (paint_flag) {
       painted <- colour_funs[[index + 1]]$inverse(char_elem)
     } else{
       painted <- colour_funs[[index + 1]](char_elem)
@@ -73,3 +76,5 @@ make_painter <- function(colour_funs) {
     painted
   }
 }
+
+    

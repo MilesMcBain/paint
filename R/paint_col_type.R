@@ -7,6 +7,11 @@ paint_col_type.default <- function(col) {
 }
 
 #' @export
+paint_col_type.vctrs_vctr <- function(col) {
+  paint_col_type_template(vctrs::vec_ptype_abbr(col))
+}
+
+#' @export
 paint_col_type.double <- function(col) {
   paint_col_type_template("dbl")
 }
