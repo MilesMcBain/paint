@@ -97,8 +97,11 @@ function() {
         NULL
       ),
       more = list(NA, Inf, character(100)),
-      and_more = c(1, -Inf, Inf)
+      and_more = c(1, -Inf, Inf),
+      tibbles = list(tibble(col = "a"), NULL, tibble(col = "c"))
     )
+
+  dplyr::filter(tst1, !is.na(tibbles))
 
 
   tst1 %>%
@@ -106,6 +109,12 @@ function() {
       nested_tibble = as_tibble(tst1)
     ) %>%
     paint()
+  
+  tst2 <- tibble(
+    col = "data",
+    null = NULL
+  ) 
+  paint(tst2)
 
   flights %>%
     group_by(year, month) %>%
@@ -135,6 +144,8 @@ function() {
   tibble(
     thing = list(tibble(a = 1, b = 2), tibble(a = 3, b = 4))
   )
+
+  
 
   # data.table
   flights <- "https://raw.githubusercontent.com/Rdatatable/data.table/master/vignettes/flights14.csv"

@@ -17,6 +17,11 @@ paint_col_type.double <- function(col) {
 }
 
 #' @export
+paint_col_type.complex <- function(col) {
+  paint_col_type_template("cplx")
+}
+
+#' @export
 paint_col_type.integer <- function(col) {
   paint_col_type_template("int")
 }

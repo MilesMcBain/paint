@@ -8,6 +8,11 @@ paint_stub <- function(object) UseMethod("paint_stub")
 
 #' @export
 paint_stub.default <- function(df) {
+
+  if (is.null(df)) stop("paint_stub got passed NULL")
+  if (is_na_value_safely(df)) stop("paint_stub got passed NA")
+	if (is_infinite_value_safely(df)) stop("paint_stub got passed an infinite value")
+
 	rows <- NROW(df)
 	cols <- NCOL(df)
 

@@ -20,12 +20,15 @@ flag_item.default <- function(item) {
 
 #' @export
 flag_item.numeric <- function(item) {
+
+  if (length(item) > 1) stop("You gave me an item of length > 1 to flag")
+
   if (is.infinite(item)) return(TRUE)
   NextMethod()
 }  
 
 #' @export
 flag_item.vctrs_vector <- function(item) {
-  if (is_infinite_safely(item)) return(TRUE)
+  if (is_infinite_value_safely(item)) return(TRUE)
   NextMethod()
 }
