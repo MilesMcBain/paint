@@ -18,7 +18,7 @@ rectangles:
   - tibble (`tbl_df`)
   - simple features geometry collection (`sf`)
   - `data.table`
-  - `tsibble`
+  - tsibble (`tbl_ts`)
 
 ## Installation
 
