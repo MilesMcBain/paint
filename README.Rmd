@@ -72,6 +72,17 @@ library(spData)
 coffee_data
 ```
 
+### unpaint()
+
+While using `paint()` as your default `print()`, you can call the
+original `print()` method with `unpaint()`:
+
+```{r, eval = TRUE}
+unpaint(nz)
+```
+
+For convenience `unpaint()` it will call `print()` on `.LastValue` by default if no argument is provided.
+
 ### Customising
 
 Supported options:

@@ -74,6 +74,46 @@ coffee_data
 #> coffee_production_2017 int NA 4 2786 38 6 NA
 ```
 
+### unpaint()
+
+While using `paint()` as your default `print()`, you can call the
+original `print()` method with `unpaint()`:
+
+``` r
+unpaint(nz)
+#> Simple feature collection with 16 features and 6 fields
+#> Geometry type: MULTIPOLYGON
+#> Dimension:     XY
+#> Bounding box:  xmin: 1090144 ymin: 4748537 xmax: 2089533 ymax: 6191874
+#> Projected CRS: NZGD2000 / New Zealand Transverse Mercator 2000
+#> First 10 features:
+#>                 Name Island Land_area Population Median_income Sex_ratio
+#> 1          Northland  North 12500.561     175500         23400 0.9424532
+#> 2           Auckland  North  4941.573    1657200         29600 0.9442858
+#> 3            Waikato  North 23900.036     460100         27900 0.9520500
+#> 4      Bay of Plenty  North 12071.145     299900         26200 0.9280391
+#> 5           Gisborne  North  8385.827      48500         24400 0.9349734
+#> 6        Hawke's Bay  North 14137.524     164000         26100 0.9238375
+#> 7           Taranaki  North  7254.480     118000         29100 0.9569363
+#> 8  Manawatu-Wanganui  North 22220.608     234500         25000 0.9387734
+#> 9         Wellington  North  8048.553     513900         32700 0.9335524
+#> 10        West Coast  South 23245.456      32400         26900 1.0139072
+#>                              geom
+#> 1  MULTIPOLYGON (((1745493 600...
+#> 2  MULTIPOLYGON (((1803822 590...
+#> 3  MULTIPOLYGON (((1860345 585...
+#> 4  MULTIPOLYGON (((2049387 583...
+#> 5  MULTIPOLYGON (((2024489 567...
+#> 6  MULTIPOLYGON (((2024489 567...
+#> 7  MULTIPOLYGON (((1740438 571...
+#> 8  MULTIPOLYGON (((1866732 566...
+#> 9  MULTIPOLYGON (((1881590 548...
+#> 10 MULTIPOLYGON (((1557042 531...
+```
+
+For convenience `unpaint()` it will call `print()` on `.LastValue` by
+default if no argument is provided.
+
 ### Customising
 
 Supported options:

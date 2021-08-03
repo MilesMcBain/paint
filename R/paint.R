@@ -42,7 +42,7 @@ paint.data.frame <- function(
       paint(df[[idx]], name = names(df)[idx], palette = palette)
     }
   )
-  invisible()
+  invisible(df)
 }
 
 
@@ -208,5 +208,10 @@ deg_min <- function(x, direction) {
 }
 
 tibble(coords = latlon(c(32.71, 2.95, NA), c(-117.17, 1.67, NA))) 
+
+nz %>% unpaint()
+nz
+unpaint()
 }
+
 
