@@ -8,14 +8,10 @@ paint_head <- function(object) UseMethod("paint_head")
 #' @export
 paint_head.default <- function(object) {
 
-  if (length(object) == 0) {
-	  stop("Got passed a zero length object to paint_head")
-	}
-	if (is_scalar(object)) {
-		if (is.na(object) || is.null(object) || is.infinite(object)) {
-      stop("Got passed a non-data object to paint_head")
-    }
-	}
+  if (is.null(object)) stop("paint_head got passed NULL")
+  if (is_na_value_safely(object)) stop("paint_head got passed NA")
+	if (is_infinite_value_safely(object)) stop("paint_head got passed an infinite value")
+	
   paint_head_template(class(object)[[1]], object)
 }
 
@@ -58,6 +54,11 @@ paint_head.MULTIPOINT <-
 paint_head.GEOMETRYCOLLECTION <-
   function(object) paint_head_template("GEOMCOL", object)
 
+#' @export
+paint_head.vctrs_vctr <- function(object) {
+  name <- vctrs::vec_ptype_abbr(object)
+  paint_head_template(name, object)
+}
 
 paint_head_template <- function(name, object) {
   name <- paint_name_template(name)
@@ -67,12 +68,4 @@ paint_head_template <- function(name, object) {
 
 paint_name_template <- function(name) {
   crayon::silver(name)
-}
-
-function() {
-  cat(paint_head(flights))
-  cat(paint_head(nz))
-  cat(paint_head(mtcars))
-  cat(paint_head(letters))
-  cat(paint_head(as.list(letters)))
 }

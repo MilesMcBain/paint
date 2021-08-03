@@ -212,6 +212,8 @@ tibble(coords = latlon(c(32.71, 2.95, NA), c(-117.17, 1.67, NA)))
 nz %>% unpaint()
 nz
 unpaint()
+
+tibble::tibble(foo = list(character(0)))
 }
 
 

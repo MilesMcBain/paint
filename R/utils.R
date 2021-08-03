@@ -13,13 +13,13 @@ rainbow_text <- function(msg) {
 }
 
 is_infinite_value_safely <- function(x) {
-  if (length(x) > 1) return(FALSE)
+  if (length(x) != 1) return(FALSE)
   tryCatch(is.infinite(x), error = function(e) FALSE)
 } 
 
 is_na_value_safely <- function(x) {
   if (!is.vector(x)) return(FALSE)
-  if (length(x) > 1) return(FALSE)
+  if (length(x) != 1) return(FALSE)
   tryCatch(is.na(x), error = function(e) FALSE)
 }
 

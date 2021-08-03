@@ -28,5 +28,6 @@ Suggests:
     tsibble,
     data.table,
     sf,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    dplyr
 Config/testthat/edition: 3
