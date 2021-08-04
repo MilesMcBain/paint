@@ -66,21 +66,21 @@
     Code
       paint_head(sf::st_geometry(spData::nz)[[1]])
     Output
-      [1] "\033[90mMPOLY\033[39m \033[90m1,784 B\033[39m"
+      [1] "\033[90mMPOLY\033[39m \033[90m1,784B\033[39m"
 
 ---
 
     Code
       paint_head(sf::st_geometry(spData::cycle_hire)[[1]])
     Output
-      [1] "\033[90mPOINT\033[39m \033[90m424 B\033[39m"
+      [1] "\033[90mPOINT\033[39m \033[90m424B\033[39m"
 
 ---
 
     Code
       paint_head(sf::st_geometry(spData::seine)[[1]])
     Output
-      [1] "\033[90mMLINES\033[39m \033[90m3,440 B\033[39m"
+      [1] "\033[90mMLINES\033[39m \033[90m3,440B\033[39m"
 
 ---
 
