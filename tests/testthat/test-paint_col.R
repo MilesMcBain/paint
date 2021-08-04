@@ -45,7 +45,9 @@ test_that("paint_col", {
           NULL,
           NA,
           Inf,
-          logical(0)
+          logical(0),
+          as.matrix(mtcars),
+          array(1:27, dim = c(3,3,3))
         ),
         palette = rainbow_6()
       ))

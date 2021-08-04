@@ -29,5 +29,6 @@ Suggests:
     data.table,
     sf,
     testthat (>= 3.0.0),
-    dplyr
+    dplyr,
+    tidyr
 Config/testthat/edition: 3
