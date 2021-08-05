@@ -1,37 +1,38 @@
 #' @export
-unpaint <- function(df) UseMethod("unpaint")
+unpaint <- function(df = .Last.value) {
 
-#' @export
-unpaint.default <- function(df) print(df)
+  cur_data.frame_method <- getS3method("print", "data.frame")
+  cur_tibble_method <- getS3method("print", "tbl_df")
+  cur_sf_method <- getS3method("print", "sf")
+  cur_data.table_method <- getS3method("print", "data.table")
 
-#' @export
-unpaint.tbl_df <- function(df) {
-  unpaint_template("tbl_df", tibble:::print.tbl_df, df)
-}
-
-#' @export
-unpaint.data.frame <- function(df) {
-	unpaint_template("data.frame", base::print.data.frame, df)
-}
-
-#' @export
-unpaint.data.table <- function(df) {
-  unpaint_template("data.table", data.table:::print.data.table, df)
-}
-
-#' @export
-unpaint.sf <- function(df) {
-  unpaint_template("sf", sf:::print.sf, df)
-}
-
-#' @export
-unpaint.NULL <- function(df) {
-  if (!is.null(.Last.value)) unpaint(.Last.value)
-}
-
-unpaint_template <- function(class, fn, df) {
-old_method <- getS3method("print", class)
-  .S3method("print", class, fn)
-  on.exit(.S3method("print", class, old_method))
+  .S3method("print", "data.frame", base::print.data.frame)
+  if (isNamespaceLoaded("tibble")) {
+    .S3method("print", "tbl_df", tibble:::print.tbl_df)
+  }
+  if (isNamespaceLoaded("data.table")) {
+    .S3method("print", "data.table", data.table:::print.data.table)
+  }
+  if (isNamespaceLoaded("sf")) {
+    .S3method("print", "sf", sf:::print.sf)
+  }
+  on.exit({
+    .S3method("print", "data.frame", cur_data.frame_method)
+    .S3method("print", "tbl_df", cur_tibble_method)
+    .S3method("print", "data.table", cur_data.table_method)
+    .S3method("print", "sf", cur_sf_method)
+  })
   print(df)
+  
+}
+
+function() {
+  spData::nz %>%
+  tibble::as_tibble() %>%
+  sf::st_as_sf()
+  unpaint()
+
+  spData::nz %>%
+  data.table::as.data.table() 
+  unpaint()
 }
