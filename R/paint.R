@@ -110,7 +110,7 @@ function() {
     ) %>%
     paint()
   
-  tst2 <- tibble(
+  tst2 <- tibble::tibble(
     col = "data",
     null = NULL
   ) 

@@ -2,7 +2,7 @@
 paint_meta <- function(df, ...) UseMethod("paint_meta")
 
 #' @export
-paint_meta.default <- function(df, ...) NULL
+paint_meta.default <- function(df, incoming = NULL) incoming
 
 #' @export
 paint_meta.tbl_df <- function(df, incoming = NULL) {
@@ -49,7 +49,7 @@ paint_meta.sf <- function(df) {
   crs_string <- if (!is.na(crs_code)) crs_code else NULL
   if (!is.na(crs_name)) crs_string <- paste(crs_string, paste0("(", crs_name, ")"))
   if (length(crs_string) == 0) {
-    crs_string <- if (!is.na(st_crs(df)$wkt)) "custom WKT" else NA
+    crs_string <- if (!is.na(sf::st_crs(df)$wkt)) "custom WKT" else NA
   }
   geometry_column_type_string <- paste0("(", paste0(geometry_column_type, collapse = ", "), ")")
   geometry_column_string <- paste(geometry_column, geometry_column_type_string)
@@ -65,7 +65,8 @@ paint_meta.sf <- function(df) {
       "crs unit: ",
       red_if_na(crs_units)
     )
-  crayon::silver(meta_string)
+  
+  NextMethod(incoming = crayon::silver(meta_string))
 }
 
 #' @export
