@@ -1,3 +1,14 @@
+#' Call the default print methods instead of paint once
+#'
+#' If you're using `paint()` as your default `print()` for dataframes, you may
+#' occasionally want to see an object printed using it's default method. This
+#' function does that. 
+#' 
+#' Either supply the object as the `df` arg, or if it has just been painted, you
+#' can call `unpaint()` with no arguments to print the `.Last.value`.
+#' 
+#' @param df the object to print.
+#' @seealso [mask_print()] to use [paint()] by default for dataframes in the current session over `print()`.
 #' @export
 unpaint <- function(df = .Last.value) {
 

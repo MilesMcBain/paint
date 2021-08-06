@@ -3,7 +3,13 @@ is_scalar <- function (x) NROW(x) == 1 && NCOL(x) == 1
 sanitise_text <- function(x) {
   gsub("\n|\r|\t", " ", x)
 }
-
+#' Colour some text with a {paint} palette
+#' 
+#' Exported just for fun.
+#' 
+#' @param msg a length one character vector (not length checked) to be coloured
+#'  using the palette set in the `paint_palette` option.
+#' @return a character vector with ANSI colour codes embedded. use cat() to see the coloured message.
 #' @export
 rainbow_text <- function(msg) {
   rainbow <- make_painter(getOption("paint_palette", rainbow_6()))

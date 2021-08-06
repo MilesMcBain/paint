@@ -1,23 +1,38 @@
-mask_data.frame <- function() {
+mask_data.frame <- function(pkgname, pkgpath) {
   .S3method("print", "data.frame", paint)
   mask_reminder_message("data.frame")
 }
 
-mask_tibble <- function() {
+mask_tibble <- function(pkgname, pkgpath) {
   .S3method("print", "tbl_df", paint)
   mask_reminder_message("tbl_df")
 }
 
-mask_sf <- function() {
+mask_sf <- function(pkgname, pkgpath) {
   .S3method("print", "sf", paint)
   mask_reminder_message("sf")
 }
 
-mask_data.table <- function() {
+mask_data.table <- function(pkgname, pkgpath) {
   .S3method("print", "data.table", paint)
   mask_reminder_message("data.table")
 }
 
+#' mask print methods for paintable dataframes
+#' 
+#' This function replaces the original paint methods for supported data.frame
+#' sub classes with calls to `paint()` in the current session. The utility of
+#' this is that `paint()` will be called whenever `print()` would, for example
+#' at the end of an expression when coding interactively. 
+#' 
+#' This also makes paint usable with other tools that output to console e.g. `{breakerofchains}`.
+#' 
+#' If you really like `paint()` you could put `paint::mask_print()` in your `.Rprofile`.
+#' 
+#' By default a colourful reminder message is emitted whenever print methods are
+#' replaced, which may not happen until the package that contains them is actually
+#' loaded, e.g. after `library(tibble)`. This can be disabled with `options(paint_remind_mask_print = FALSE)`
+#' @seealso [unpaint()] A method for calling the default print functions once for a single object or .Last.value.
 #' @export
 mask_print <- function() {
   mask_data.frame()
@@ -58,6 +73,7 @@ unmask_data.table <- function() {
   unmask_reminder_message("data.table")
 }
 
+#' @describeIn mask_print the reverse operation to `mask_print`: return all print methods to defaults.
 #' @export
 unmask_print <- function() {
   unmask_data.frame()

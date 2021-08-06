@@ -56,7 +56,7 @@ test_that("tibble", {
       expect_snapshot(paint(dplyr::rowwise(palmerpenguins::penguins)))
 
       # vctrs
-      library(vctrs) # have to library it in or S3 won't register
+      vec_ptype_abbr <- vctrs::vec_ptype_abbr
       new_percent <- function(x = double()) {
         vctrs::vec_assert(x, double())
         vctrs::new_vctr(x, class = "percent")
@@ -64,11 +64,14 @@ test_that("tibble", {
       vec_ptype_abbr.percent <- function(x) {
         "pct%"
       }
+      .S3method("vec_ptype_abbr", "percent", vec_ptype_abbr.percent)
+
       # needed to register the S3 method in a test
 
       format.percent <- function(x) {
         paste0(format(as.numeric(vctrs::vec_data(x)) * 100, digits = 3), "%")
       }
+      .S3method("format", "percent", format.percent)
       a_vctr <- new_percent(c(seq(0, 1, length.out = 4), NA))
 
       vec_tibble <- tibble::tibble(

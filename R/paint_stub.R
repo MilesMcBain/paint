@@ -2,6 +2,7 @@
 #'
 #' The stub is the bit after the name in the object title e.g. tibble [row,
 #' cols] - stub is the dimensions summary after "tibble"
+#' @noRd
 
 paint_stub <- function(object) UseMethod("paint_stub") 
 

@@ -7,12 +7,14 @@ test_that("mask_print", {
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
     .expr = {
-      expect_snapshot(mask_print())
+
+      options(paint_remind_mask_print = FALSE)
+      mask_print()
       expect_snapshot(mtcars)
       expect_snapshot(palmerpenguins::penguins)
       expect_snapshot(spData::nz)
       expect_snapshot(data.table::as.data.table(palmerpenguins::penguins))
-      expect_snapshot(unmask_print())
+      unmask_print()
       expect_snapshot(mtcars)
       expect_snapshot(palmerpenguins::penguins)
       expect_snapshot(spData::nz)

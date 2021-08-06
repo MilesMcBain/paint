@@ -8,6 +8,7 @@ test_that("paint_col", {
     paint_dark_mode = NULL,
     .expr = {
       # vctrs
+      vec_ptype_abbr <- vctrs::vec_ptype_abbr
       new_percent <- function(x = double()) {
         vctrs::vec_assert(x, double())
         vctrs::new_vctr(x, class = "percent")
@@ -15,6 +16,7 @@ test_that("paint_col", {
       vec_ptype_abbr.percent <- function(x) {
         "pct%"
       }
+      .S3method("vec_ptype_abbr", "percent", vec_ptype_abbr.percent)
       a_vctr <- new_percent(c(seq(0, 1, length.out = 4), NA))
 
       expect_snapshot(paint_col(head(letters), palette = rainbow_6()))
