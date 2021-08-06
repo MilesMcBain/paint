@@ -1,17 +1,17 @@
 #' Paint a rectangle in the data.frame family
-#' 
+#'
 #' {paint} is an alternative print method of objects that are of class
 #' `data.frame`. It has been described as a "pretty [pillar::glimpse()]", since it
 #' also favours printing columns running horizontally.
-#' 
+#'
 #' {paint} tries to be low noise by using colour instead of markup characters.
 #' It also highlights important values like `NA`, `NULL`, `NaN`, and `Inf`.
-#' 
+#'
 #' Each supported sub-class of `data.frame` has a custom meta data header,
 #' designed to show useful information for wrangling.
-#' 
+#'
 #' The appearance of the output can be customised with options:
-#' 
+#'
 #'  * `paint_palette` the palette to paint row colours with, defaults to
 #'    `rainbow_6()`, 6 standard ANSI colours that are supported in most terminals.
 #'  * `paint_n_rows` the number of rows to print for each column. Defaults to the
@@ -22,27 +22,28 @@
 #'    title and type. Defaults to `"left"`.
 #'  * `paint_dark_mode` darken the `paint_palette` using `crayon::blurred` - not
 #'    supported in all terminals.
-#' @param object the dataframe to paint
+#' @param df the dataframe to paint
 #' @param ... further arguments to class specific paint methods
-#' @return object invisibly. Text outputed printed to console.
+#' @return df invisibly. Text outputed printed to console.
 #' @export
 #' @seealso [unpaint()] for calling the default print method on a dataframe
 #' @examples
 #' paint(mtcars)
-paint <- function(object, ...) UseMethod("paint", object)
+paint <- function(df, ...) UseMethod("paint", df)
 
 #' @export
 paint.data.frame <- function(
   df,
   name = NULL,
-  palette = getOption("paint_palette", rainbow_6()  )
+  palette = getOption("paint_palette", rainbow_6()),
+  ...
 ) {
   col_types <- lapply(df, paint_col_type)
   col_names <- colnames(df)
   col_dims <- lapply(df, dim)
   cols <- mapply(
     paint_col,
-    head(df, getOption("paint_n_rows", length(palette))),
+    utils::head(df, getOption("paint_n_rows", length(palette))),
     col_dims,
     MoreArgs = list(palette = palette)
   )

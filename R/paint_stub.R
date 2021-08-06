@@ -33,7 +33,7 @@ paint_stub.array <- function(array) {
 
 #' @export
 paint_stub.sfg <- function(sfg) {
-  size <- capture.output(print(pryr::object_size(sfg)))
+  size <- utils::capture.output(print(pryr::object_size(sfg)))
 	trimmed_size <- gsub("\\s", "", size)
 	paint_stub_template(trimmed_size)
 }

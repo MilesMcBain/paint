@@ -4,15 +4,15 @@
 \alias{paint}
 \title{Paint a rectangle in the data.frame family}
 \usage{
-paint(object, ...)
+paint(df, ...)
 }
 \arguments{
-\item{object}{the dataframe to paint}
+\item{df}{the dataframe to paint}
 
 \item{...}{further arguments to class specific paint methods}
 }
 \value{
-object invisibly. Text outputed printed to console.
+df invisibly. Text outputed printed to console.
 }
 \description{
 {paint} is an alternative print method of objects that are of class

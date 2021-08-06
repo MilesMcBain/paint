@@ -19,7 +19,9 @@ BugReports: https://github.com/MilesMcBain/paint-/issues
 Imports: 
     crayon,
     pryr,
+    purrr,
     RColorBrewer,
+    utils,
     vctrs,
     viridisLite
 Suggests: 
@@ -31,5 +33,6 @@ Suggests:
     testthat (>= 3.0.0),
     dplyr,
     tidyr,
-    palmerpenguins
+    palmerpenguins,
+    rlang
 Config/testthat/edition: 3
