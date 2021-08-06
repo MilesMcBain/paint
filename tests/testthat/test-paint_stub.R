@@ -6,7 +6,6 @@ rlang::with_options(
     paint_palette = NULL,
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
-    paint_mask_print = NULL,
     .expr = {
   expect_snapshot(paint_stub(letters))
   expect_snapshot(paint_stub(matrix(data = seq(9), nrow = 3)))

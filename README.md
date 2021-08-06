@@ -47,19 +47,16 @@ paint(nz)
 #> Population    dbl 175500 1657200 460100 299900 48500 164000
 #> Median_income int 23400 29600 27900 26200 24400 26100
 #> Sex_ratio     dbl 0.942453 0.944286 0.95205 0.928039 0.9349~
-#> geom          sfc MPOLY 1,784 B MPOLY 2,288 B MPOLY 2,376 B~
+#> geom          sfc MPOLY 1,784B MPOLY 2,288B MPOLY 2,376B MP~
 ```
 
 ### Replacing `print()`
 
-You can optionally replace the `print()` methods with `paint()` to paint
+You can choose replace the `print()` methods with `paint()` to paint
 datafames any time they are output:
 
 ``` r
-options(
-  paint_mask_print = TRUE
-)
-library(paint)
+paint::mask_print()
 #> {paint} masked print.data.frame
 #> {paint} masked print.tbl_df
 #> {paint} masked print.sf
@@ -74,12 +71,20 @@ coffee_data
 #> coffee_production_2017 int NA 4 2786 38 6 NA
 ```
 
+`paint::mask_print()` can be placed in the `.Rprofile` so `paint()` is
+always preferred. `unmask_print()` will return the `print()` methods to
+their defaults for the current session.
+
+By default a reminder message is posted when S3 methods are masked.
+Disable this with `options(paint_remind_mask_print = FALSE)`.
+
 ### unpaint()
 
 While using `paint()` as your default `print()`, you can call the
 original `print()` method with `unpaint()`:
 
 ``` r
+library(paint)
 unpaint(nz)
 #> Simple feature collection with 16 features and 6 fields
 #> Geometry type: MULTIPOLYGON
@@ -131,8 +136,8 @@ Supported options:
     the column title and type. Defaults to `"left"`.
   - `paint_dark_mode` darken the `paint_palette` using `crayon::blurred`
     - not supported in all terminals.
-  - `paint_mask_print` mask the print() methods of supported dataframes
-    in the `.Globalenv`? Defaults to `FALSE`.
+  - `paint_remind_mask_print` show a reminder message when `print()`
+    methods are manipulated by `{paint}`? defaults to `TRUE`.
 
 ### Making a custom palette
 
@@ -168,11 +173,11 @@ scope of this document.
 ## Design
 
 `{paint}` is a response to my frustrations with standard print methods
-on large rectangles. It tries to be less noisy, harnessing the eye’s
-ability to see colour patterns to reduce markup characters. Only the
-most important information for data wrangling is highlighted, the
-pinnacle being the column names, which always appear down the left and
-are never truncated.
+on wide rectangles with long naming schemes. It tries to be less noisy,
+harnessing the eyes’ ability to see colour patterns to reduce markup
+characters. Only the most important information for data wrangling is
+highlighted, the pinnacle being the column names, which always appear
+down the left and are never truncated.
 
 Important issues with the data, e.g. sticky `dplyr` groups, or missing
 values, are highlighted to draw extra attention.
@@ -181,4 +186,4 @@ values, are highlighted to draw extra attention.
 [`glimpse()`](https://github.com/r-lib/pillar/blob/master/R/glimpse.R),
 `str()`, [`{emphatic}`](https://github.com/coolbutuseless/emphatic), and
 the [Rainbow CSV](https://github.com/mechatroner/vscode_rainbow_csv)
-addin for VScode.
+addin for VSCode.

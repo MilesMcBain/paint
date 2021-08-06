@@ -6,7 +6,6 @@ test_that("data.table", {
     paint_palette = NULL,
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
-    paint_mask_print = NULL,
     .expr = {
       pp_dt <- data.table::as.data.table(palmerpenguins::penguins)
       expect_snapshot(paint(pp_dt))

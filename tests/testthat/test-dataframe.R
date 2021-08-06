@@ -6,7 +6,6 @@ test_that("data.frame types", {
     paint_palette = NULL,
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
-    paint_mask_print = NULL,
     .expr = {
       expect_snapshot(
         capture.output(paint(data.frame(

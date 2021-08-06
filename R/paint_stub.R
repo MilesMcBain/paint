@@ -42,8 +42,3 @@ paint_stub.sfg <- function(sfg) {
 paint_stub_template <- function(dims) {
 	crayon::silver(dims)
 }
-
-function() {
-  paint_stub(letters)
-	paint_stub(matrix(1:9, nrow = 3))
-}

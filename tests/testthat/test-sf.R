@@ -6,7 +6,6 @@ test_that("sf", {
     paint_palette = NULL,
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
-    paint_mask_print = NULL,
     .expr = {
       expect_snapshot(paint(spData::nz))
       expect_snapshot(paint(

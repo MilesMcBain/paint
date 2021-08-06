@@ -6,7 +6,6 @@ test_that("multiplication works", {
     paint_palette = NULL,
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
-    paint_mask_print = NULL,
     .expr = {
   expect_snapshot(paint(tsibble::pedestrian))
   expect_snapshot(paint(dplyr::group_by(tsibble::pedestrian, Sensor)))

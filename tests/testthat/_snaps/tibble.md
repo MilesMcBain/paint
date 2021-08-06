@@ -1,7 +1,7 @@
 # tibble
 
     Code
-      tibble::tibble(foo = list(character(0)))
+      paint(tibble::tibble(foo = list(character(0))))
     Output
       [90mtibble[39m [90m[1, 1][39m 
       foo [90mlst[39m [31mcharacter [0][39m 
@@ -118,7 +118,7 @@
 ---
 
     Code
-      dplyr::rowwise(palmerpenguins::penguins)
+      paint(dplyr::rowwise(palmerpenguins::penguins))
     Output
       [90mtibble[39m [90m[344, 8][39m 
       [41mrowwise[49m [90m[39m 

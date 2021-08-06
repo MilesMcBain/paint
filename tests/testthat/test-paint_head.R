@@ -6,7 +6,6 @@ test_that("paint_head", {
     paint_palette = NULL,
     paint_align_row_head = NULL,
     paint_dark_mode = NULL,
-    paint_mask_print = NULL,
     .expr = {
 
       # rectangles
