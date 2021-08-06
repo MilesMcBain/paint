@@ -1,4 +1,3 @@
-#' @export
 paint_meta <- function(df, ...) UseMethod("paint_meta")
 
 #' @export

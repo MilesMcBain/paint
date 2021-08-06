@@ -2,7 +2,6 @@
 # The head is the combination of an object name and stub
 # Eg in tibble [100, 10] "tibble" is the name "[100, 10]" is the stub
 
-#' @export
 paint_head <- function(object) UseMethod("paint_head")
 
 #' @export

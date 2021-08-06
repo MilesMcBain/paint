@@ -1,4 +1,3 @@
-#' @export
 paint_col <- function(col, ..., palette) UseMethod("paint_col", col)
 
 #' @export

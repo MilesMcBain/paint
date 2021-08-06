@@ -3,7 +3,6 @@
 # This really only needed to be created for vctrs since not all of them support
 # is.infinite() gracefully
 
-#' @export
 flag_item <- function(item) UseMethod("flag_item")
 
 #' @export

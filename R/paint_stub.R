@@ -3,7 +3,6 @@
 #' The stub is the bit after the name in the object title e.g. tibble [row,
 #' cols] - stub is the dimensions summary after "tibble"
 
-#' @export
 paint_stub <- function(object) UseMethod("paint_stub") 
 
 #' @export
@@ -38,7 +37,6 @@ paint_stub.sfg <- function(sfg) {
 	paint_stub_template(trimmed_size)
 }
 
-#' @export
 paint_stub_template <- function(dims) {
 	crayon::silver(dims)
 }
