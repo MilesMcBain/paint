@@ -213,7 +213,6 @@ nz %>% unpaint()
 nz
 unpaint()
 
-tibble::tibble(foo = list(character(0)))
 }
 
 

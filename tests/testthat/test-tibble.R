@@ -8,6 +8,8 @@ test_that("tibble", {
     paint_dark_mode = NULL,
     paint_mask_print = NULL,
     .expr = {
+      expect_snapshot(tibble::tibble(foo = list(character(0))))
+
       tst1 <-
         tibble::tibble(
           this = c(NA, NaN, 3),

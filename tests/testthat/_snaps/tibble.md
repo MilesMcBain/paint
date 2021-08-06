@@ -1,6 +1,14 @@
 # tibble
 
     Code
+      tibble::tibble(foo = list(character(0)))
+    Output
+      [90mtibble[39m [90m[1, 1][39m 
+      foo [90mlst[39m [31mcharacter [0][39m 
+
+---
+
+    Code
       paint(tst1)
     Output
       [90mtibble[39m [90m[3, 5][39m 
