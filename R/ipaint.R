@@ -1,4 +1,7 @@
 ipaint <- function(df) {
+	if (!keypress::has_keypress_support()) {
+		stop("Sorry your terminal is not supported by {keypress}.")
+	}
   row <- 1
   palette <- getOption("paint_palette", rainbow_6())
   key <- ""
