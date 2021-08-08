@@ -36,14 +36,20 @@ paint.data.frame <- function(
   df,
   name = NULL,
   palette = getOption("paint_palette", rainbow_6()),
+  start_row = NULL, # used to support ipaint()
   ...
 ) {
   col_types <- lapply(df, paint_col_type)
   col_names <- colnames(df)
   col_dims <- lapply(df, dim)
+  rows_to_paint <-
+    utils::head(
+      offset(df, start_row),
+      getOption("paint_n_rows", length(palette))
+    )
   cols <- mapply(
     paint_col,
-    utils::head(df, getOption("paint_n_rows", length(palette))),
+    rows_to_paint,
     col_dims,
     MoreArgs = list(palette = palette)
   )
@@ -73,4 +79,11 @@ paint.data.frame <- function(
     }
   )
   invisible(df)
+}
+
+offset <- function(df, n) {
+  if (is.null(n)) {
+    return(df)
+  }
+  df[seq(n, nrow(df)), ]
 }
