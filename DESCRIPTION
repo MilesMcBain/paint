@@ -1,6 +1,6 @@
 Package: paint
 Title: paint data.frames summaries in colour 
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: 
     person(given = "Miles",
            family = "McBain",
