@@ -22,8 +22,13 @@ rectangles:
 
 ## Installation
 
+Get the latest release from my
+[r-universe](https://milesmcbain.r-universe.dev/ui#builds):
+
 ``` r
-remotes::install_github("milesmcbain/paint")
+install.packages(
+   "paint", 
+   repos = c(mm = "https://milesmcbain.r-universe.dev", c(getOption("repos"))))
 ```
 
 ## Usage
