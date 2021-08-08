@@ -17,6 +17,7 @@ ipaint <- function(df) {
 		row_footer(row, df, palette)
     key <- keypress::keypress()
   }
+	cat("\n")
 }
 
 rotate_palette_forward <- function(palette) {
