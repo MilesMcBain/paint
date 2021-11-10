@@ -24,6 +24,10 @@ test_that("data.frame types", {
 					datetime_col = as.POSIXct(c("2013-01-01 05:00:00 EST", "2013-01-01 05:00:00 EST", "2013-01-01 05:00:00 EST")),
 					complex_col = c(0+1i, 1+2i, 2+3i)
 				)))
+
+      expect_snapshot(
+        paint(data.frame())
+      )
     })
 	
 })

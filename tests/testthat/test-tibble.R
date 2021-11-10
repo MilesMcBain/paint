@@ -80,6 +80,8 @@ test_that("tibble", {
       )
       expect_snapshot(paint(vec_tibble))
 
+      expect_snapshot(paint(tibble::tibble()))
+
       .S3method("vec_ptype_abbr", "percent", function(...) NextMethod())
       .S3method("format", "percent", function(...) NextMethod())
     }

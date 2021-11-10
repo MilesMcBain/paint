@@ -11,6 +11,7 @@ test_that("data.table", {
       expect_snapshot(paint(pp_dt))
       pp_dt_keyed <- data.table::setkey(pp_dt, body_mass_g, flipper_length_mm)
       expect_snapshot(paint(pp_dt_keyed))
+      expect_snapshot(paint(data.table::data.table()))
     }
   )
 })

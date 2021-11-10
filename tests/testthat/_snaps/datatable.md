@@ -29,3 +29,10 @@
       sex               [90mfct[39m [31m[7mNA[27m[39m [33m[7mNA[27m[39m [36mfemale[39m [32mfemale[39m [35mfemale[39m [34mfemale[39m
       year              [90mint[39m [31m2007[39m [33m2009[39m [36m2008[39m [32m2008[39m [35m2008[39m [34m2008[39m 
 
+---
+
+    Code
+      paint(data.table::data.table())
+    Output
+      [90mdata.table[39m [90m[0, 0][39m
+

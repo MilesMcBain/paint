@@ -24,3 +24,10 @@
       datetime_col [90mdttm[39m [31m2013-01-01 05:00:00[39m [33m2013-01-01 05:00:00[39m [36m2[39m[1m~[22m
       complex_col  [90mcplx[39m [31m0+1i[39m [33m1+2i[39m [36m2+3i[39m 
 
+---
+
+    Code
+      paint(data.frame())
+    Output
+      [90mdata.frame[39m [90m[0, 0][39m
+

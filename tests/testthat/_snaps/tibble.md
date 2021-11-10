@@ -140,3 +140,10 @@
       vctr [90mpct%[39m [31m 0.0%[39m [33m 33.3%[39m [36m 66.7%[39m [32m100.0%[39m [35m NA%[39m
       nums [90mint[39m  [31m1[39m [33m2[39m [36m3[39m [32m4[39m [35m5[39m 
 
+---
+
+    Code
+      paint(tibble::tibble())
+    Output
+      [90mtibble[39m [90m[0, 0][39m
+

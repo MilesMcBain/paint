@@ -39,6 +39,10 @@ paint.data.frame <- function(
   start_row = NULL, # used to support ipaint()
   ...
 ) {
+  if (ncol(df) == 0) {
+    cat(paint_head(df), "\n", sep = "")
+    return(invisible(df))
+  }
   col_types <- lapply(df, paint_col_type)
   col_names <- colnames(df)
   col_dims <- lapply(df, dim)
