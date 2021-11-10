@@ -14,7 +14,7 @@ paint_col.vctrs_vctr <- function(col, ..., palette) {
   # vctrs wants formatted cols to be the same width, so we remove extra space here:
   sanitised_formatted <- gsub("\\s{2,}", " ", formatted)
   col <- sanitised_formatted
-  NextMethod()
+  paint_col.default(col, ..., palette = palette)
 }
 
 #' @export

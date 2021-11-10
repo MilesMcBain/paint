@@ -36,6 +36,20 @@
 ---
 
     Code
+      paint_col(a_tuple, palette = rainbow_6())
+    Output
+      [1] "\033[31m1 data\033[39m \033[33m2 data\033[39m \033[36m3 data\033[39m \033[32m4 data\033[39m \033[35m5 data\033[39m"
+
+---
+
+    Code
+      paint_col(a_vctr, palette = rainbow_6())
+    Output
+      [1] "\033[31m 0.0%\033[39m \033[33m 33.3%\033[39m \033[36m 66.7%\033[39m \033[32m100.0%\033[39m \033[35m NA%\033[39m"
+
+---
+
+    Code
       paint_col(head(palmerpenguins::penguins), dim = dim(palmerpenguins::penguins),
       palette = rainbow_6())
     Output
@@ -54,8 +68,8 @@
       paint_col(list(tibble::tibble(col1 = c(1, 2), col2 = c(3, 4)), tibble::tibble(
         foo = list(character(0))), data.table::as.data.table(palmerpenguins::penguins),
       tsibble::pedestrian, head(sf::st_geometry(spData::nz)), spData::nz, a_vctr,
-      letters, as.list(letters), NULL, NA, Inf, logical(0), as.matrix(mtcars), array(
-        1:27, dim = c(3, 3, 3))), palette = rainbow_6())
+      a_tuple, letters, as.list(letters), NULL, NA, Inf, logical(0), as.matrix(mtcars),
+      array(1:27, dim = c(3, 3, 3))), palette = rainbow_6())
     Output
-      [1] "\033[31mtibble [2, 2]\033[39m \033[33mtibble [1, 1]\033[39m \033[36mdata.table [344, 8]\033[39m \033[32mtsibble [66037, 5]\033[39m \033[35msfc_MULTIPOLYGON [6, 1]\033[39m \033[34msf [16, 7]\033[39m \033[31mpct% [5, 1]\033[39m \033[33mcharacter [26]\033[39m \033[36mlist [26]\033[39m \033[32m\033[7mNULL\033[27m\033[39m \033[35m\033[7mNA\033[27m\033[39m \033[34m\033[7mInf\033[27m\033[39m \033[31mlogical [0]\033[39m \033[33mmatrix [32, 11]\033[39m \033[36marray [3, 3, 3]\033[39m"
+      [1] "\033[31mtibble [2, 2]\033[39m \033[33mtibble [1, 1]\033[39m \033[36mdata.table [344, 8]\033[39m \033[32mtsibble [66037, 5]\033[39m \033[35msfc_MULTIPOLYGON [6, 1]\033[39m \033[34msf [16, 7]\033[39m \033[31mpct% [5, 1]\033[39m \033[33mtuple [5, 1]\033[39m \033[36mcharacter [26]\033[39m \033[32mlist [26]\033[39m \033[35m\033[7mNULL\033[27m\033[39m \033[34m\033[7mNA\033[27m\033[39m \033[31m\033[7mInf\033[27m\033[39m \033[33mlogical [0]\033[39m \033[36mmatrix [32, 11]\033[39m \033[32marray [3, 3, 3]\033[39m"
 

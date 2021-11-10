@@ -53,7 +53,10 @@ test_that("paint_head", {
       vec_ptype_abbr.percent <- function(x) {
         "pct%"
       }
+      .S3method("vec_ptype_abbr", "percent", vec_ptype_abbr.percent)
       expect_snapshot(paint_head(new_percent(c(seq(0, 1, length.out = 4), NA))))
+
+      .S3method("vec_ptype_abbr", "percent", function(...) NextMethod())
     }
   )
 })

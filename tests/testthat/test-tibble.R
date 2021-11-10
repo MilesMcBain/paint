@@ -79,6 +79,9 @@ test_that("tibble", {
         nums = seq_along(a_vctr)
       )
       expect_snapshot(paint(vec_tibble))
+
+      .S3method("vec_ptype_abbr", "percent", function(...) NextMethod())
+      .S3method("format", "percent", function(...) NextMethod())
     }
   )
 })
