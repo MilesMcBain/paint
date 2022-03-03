@@ -30,14 +30,16 @@ get_output_buffer <- function() {
 
 get_output_buffer_rows <- function() {
   newlines <-
-    lapply(
-      gregexpr("(?<!\\\\)\n", get_output_buffer(), perl = TRUE),
-      function(match) {
-        if (length(match) == 1 && match == -1) 0 else length(match)
-      }
-    ) |>
-    unlist() |>
-    sum()
+    sum(
+      unlist(
+        lapply(
+          gregexpr("(?<!\\\\)\n", get_output_buffer(), perl = TRUE),
+          function(match) {
+            if (length(match) == 1 && match == -1) 0 else length(match)
+          }
+        )
+      )
+    )
 
   newlines + 1
 }
