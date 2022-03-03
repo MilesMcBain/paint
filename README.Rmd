@@ -40,7 +40,7 @@ Get the latest release from my [r-universe](https://milesmcbain.r-universe.dev/u
 ```r
 install.packages(
    "paint", 
-   repos = c(mm = "https://milesmcbain.r-universe.dev", c(getOption("repos"))))
+   repos = c(mm = "https://milesmcbain.r-universe.dev", getOption("repos")))
 ```
 
 ## Usage

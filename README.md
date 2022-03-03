@@ -14,11 +14,11 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 An artisanally crafted set of print methods for `data.frame` family
 rectangles:
 
-  - `data.frame`
-  - tibble (`tbl_df`)
-  - simple features geometry collection (`sf`)
-  - `data.table`
-  - tsibble (`tbl_ts`)
+-   `data.frame`
+-   tibble (`tbl_df`)
+-   simple features geometry collection (`sf`)
+-   `data.table`
+-   tsibble (`tbl_ts`)
 
 ## Installation
 
@@ -28,7 +28,7 @@ Get the latest release from my
 ``` r
 install.packages(
    "paint", 
-   repos = c(mm = "https://milesmcbain.r-universe.dev", c(getOption("repos"))))
+   repos = c(mm = "https://milesmcbain.r-universe.dev", getOption("repos")))
 ```
 
 ## Usage
@@ -42,10 +42,10 @@ printed for each class.
 library(spData)
 library(paint)
 paint(nz)
-#> sf [16, 7] 
+#> sf [16, 7]
 #> active geometry column: geom (MULTIPOLYGON)
 #> crs: 2193 (NZGD2000 / New Zealand Transverse Mercator 2000)
-#> crs unit: metre 
+#> crs unit: metre
 #> Name          chr Northland Auckland Waikato Bay of Plenty ~
 #> Island        chr North North North North North North
 #> Land_area     dbl 12500.561149 4941.572557 23900.036383 120~
@@ -67,10 +67,10 @@ paint::mask_print()
 #> {paint} masked print.sf
 library(tibble)
 library(sf)
-#> Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
+#> Linking to GEOS 3.10.1, GDAL 3.4.0, PROJ 8.2.0; sf_use_s2() is TRUE
 library(spData)
 coffee_data
-#> tibble [47, 3] 
+#> tibble [47, 3]
 #> name_long              chr Angola Bolivia Brazil Burundi Ca~
 #> coffee_production_2016 int NA 3 3277 37 8 NA
 #> coffee_production_2017 int NA 4 2786 38 6 NA
@@ -128,20 +128,20 @@ default if no argument is provided.
 
 Supported options:
 
-  - `paint_palette` the palette to paint row colours with, defaults to
+-   `paint_palette` the palette to paint row colours with, defaults to
     `rainbow_6()`, 6 standard ANSI colours that are supported in most
     terminals.
-  - `paint_n_rows` the number of rows to print for each column. Defaults
+-   `paint_n_rows` the number of rows to print for each column. Defaults
     to the number of colours in the `paint_palette`, but can be set
     higher for repeating sequences.
-  - `paint_max_width` the maximum width of the output. 60 is the
+-   `paint_max_width` the maximum width of the output. 60 is the
     default. `{paint}` does not resize based on terminal width by
     design.
-  - `paint_align_row_head = c("left", "center", "right")`. How to align
+-   `paint_align_row_head = c("left", "center", "right")`. How to align
     the column title and type. Defaults to `"left"`.
-  - `paint_dark_mode` darken the `paint_palette` using `crayon::blurred`
-    - not supported in all terminals.
-  - `paint_remind_mask_print` show a reminder message when `print()`
+-   `paint_dark_mode` darken the `paint_palette` using
+    `crayon::blurred` - not supported in all terminals.
+-   `paint_remind_mask_print` show a reminder message when `print()`
     methods are manipulated by `{paint}`? defaults to `TRUE`.
 
 ### Making a custom palette
@@ -157,7 +157,7 @@ library(crayon)
 my_magma <- lapply(viridisLite::magma(6), crayon::make_style)
 options(paint_palette = my_magma)
 paint(mtcars)
-#> data.frame [32, 11] 
+#> data.frame [32, 11]
 #> mpg  dbl 21 21 22.8 21.4 18.7 18.1
 #> cyl  dbl 6 6 4 6 8 6
 #> disp dbl 160 160 108 258 360 225
