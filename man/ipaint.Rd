@@ -15,8 +15,4 @@ updating the rows shown in response to left or right keypresses.
 }
 \details{
 It will only work in terminals supported by {keypress} - Not many!
-
-In order to paint the \code{df} in the same place each time this function outputs a
-whole lot of newlines in between paints. This will eat up your terminal scroll buffer,
-so DO NOT use this if there's information currently in the terminal that is important to you.
 }

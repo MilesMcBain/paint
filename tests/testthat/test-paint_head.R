@@ -46,6 +46,7 @@ test_that("paint_head", {
       expect_snapshot(paint_head(character(0)))
 
       # vctrs
+      vec_ptype_abbr <- vctrs::vec_ptype_abbr
       new_percent <- function(x = double()) {
         vctrs::vec_assert(x, double())
         vctrs::new_vctr(x, class = "percent")

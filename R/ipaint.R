@@ -5,10 +5,6 @@
 #'
 #' It will only work in terminals supported by {keypress} - Not many!
 #'
-#' In order to paint the `df` in the same place each time this function outputs a
-#' whole lot of newlines in between paints. This will eat up your terminal scroll buffer,
-#' so DO NOT use this if there's information currently in the terminal that is important to you.
-#'
 #' @param df the dataframe to scroll through, defaults to `.Last.value`
 #' @export
 ipaint <- function(df = .Last.value) {
@@ -28,22 +24,21 @@ ipaint <- function(df = .Last.value) {
       row <- min(nrow(df), row + 1)
       if (row > old_row) palette <- rotate_palette_forward(palette)
     }
-    paint_to_buffer(df, palette = palette, start_row = row)
-    row_footer_to_buffer(row, df, palette)
+    paint_to_output_buffer(df, palette = palette, start_row = row)
+    row_footer_to_output_buffer(row, df, palette)
 
     if (key != "") {
-			buffer_size <- get_cat_buffer_rows()
-			cat(sprintf("\033[%dA\r", buffer_size - 1)) 
+			buffer_size <- get_output_buffer_rows()
+			cat(sprintf("\033[%dA\r", buffer_size - 1)) # back to first row 
 			cat(blank_buffer(buffer_size))
-			cat(sprintf("\033[%dA\r", buffer_size)) 
+			cat(sprintf("\033[%dA\r", buffer_size - 1)) 
 		}
 
-    cat(get_cat_buffer(), sep = "")
-    reset_cat_buffer()
+    cat(get_output_buffer(), sep = "")
+    reset_output_buffer()
 
     key <- keypress::keypress()
   }
-	cat("\n")
 }
 
 rotate_palette_forward <- function(palette) {
@@ -54,7 +49,7 @@ rotate_palette_backward <- function(palette) {
   c(palette[[length(palette)]], palette[1:(length(palette) - 1)])
 }
 
-row_footer_to_buffer <- function(row, df, palette) {
+row_footer_to_output_buffer <- function(row, df, palette) {
   min_row <- row
   row_width <- getOption("paint_n_rows", length(palette))
   max_row <- min(nrow(df), (min_row + row_width) - 1)
@@ -67,59 +62,15 @@ row_footer_to_buffer <- function(row, df, palette) {
     )
   instructions <-
     crayon::silver("scroll with <-,h,l,-> or Enter to exit")
-  append_cat_buffer(
+
+  append_to_output_buffer(
     "\n",
     "\n",
     row_message,
     "\n",
-    instructions
+    instructions,
+    "\n"
   )
-}
-
-capture_cat_buffer <- function(..., sep = "") {
-  cat_buffer <<-
-    c(
-      cat_buffer,
-      unlist(list(...))
-    )
-}
-
-reset_cat_buffer <- function() {
-  cat_buffer <<- NULL
-}
-
-get_cat_buffer <- function() {
-  cat_buffer
-}
-
-get_cat_buffer_rows <- function() {
-  newlines <-
-    lapply(
-      gregexpr("(?<!\\\\)\n", get_cat_buffer(), perl = TRUE),
-      function(match) {
-        if (length(match) == 1 && match == -1) 0 else length(match)
-      }
-    ) |>
-		unlist() |>
-    sum()
-
-  newlines
-}
-
-append_cat_buffer <- function(...) {
-  cat_buffer <<-
-    c(
-      cat_buffer,
-      unlist(list(...))
-    )
-}
-
-cat_buffer <- NULL
-
-paint_to_buffer <- function(...) {
-  assign("cat", capture_cat_buffer, environment(paint))
-  paint(...)
-  remove("cat", envir = environment(paint))
 }
 
 blank_buffer <- function(n_rows) {

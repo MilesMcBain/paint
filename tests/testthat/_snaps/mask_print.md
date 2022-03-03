@@ -3,7 +3,7 @@
     Code
       mtcars
     Output
-      [90mdata.frame[39m [90m[32, 11][39m 
+      [90mdata.frame[39m [90m[32, 11][39m
       mpg  [90mdbl[39m [31m21[39m [33m21[39m [36m22.8[39m [32m21.4[39m [35m18.7[39m [34m18.1[39m
       cyl  [90mdbl[39m [31m6[39m [33m6[39m [36m4[39m [32m6[39m [35m8[39m [34m6[39m
       disp [90mdbl[39m [31m160[39m [33m160[39m [36m108[39m [32m258[39m [35m360[39m [34m225[39m
@@ -14,14 +14,14 @@
       vs   [90mdbl[39m [31m0[39m [33m0[39m [36m1[39m [32m1[39m [35m0[39m [34m1[39m
       am   [90mdbl[39m [31m1[39m [33m1[39m [36m1[39m [32m0[39m [35m0[39m [34m0[39m
       gear [90mdbl[39m [31m4[39m [33m4[39m [36m4[39m [32m3[39m [35m3[39m [34m3[39m
-      carb [90mdbl[39m [31m4[39m [33m4[39m [36m1[39m [32m1[39m [35m2[39m [34m1[39m 
+      carb [90mdbl[39m [31m4[39m [33m4[39m [36m1[39m [32m1[39m [35m2[39m [34m1[39m
 
 ---
 
     Code
       palmerpenguins::penguins
     Output
-      [90mtibble[39m [90m[344, 8][39m 
+      [90mtibble[39m [90m[344, 8][39m
       species           [90mfct[39m [31mAdelie[39m [33mAdelie[39m [36mAdelie[39m [32mAdelie[39m [35mAdelie[39m [34mAd[39m[1m~[22m
       island            [90mfct[39m [31mTorgersen[39m [33mTorgersen[39m [36mTorgersen[39m [32mTorgers[39m[35m[39m[34m[39m[1m~[22m
       bill_length_mm    [90mdbl[39m [31m39.1[39m [33m39.5[39m [36m40.3[39m [32m[7mNA[27m[39m [35m36.7[39m [34m39.3[39m
@@ -29,31 +29,31 @@
       flipper_length_mm [90mint[39m [31m181[39m [33m186[39m [36m195[39m [32m[7mNA[27m[39m [35m193[39m [34m190[39m
       body_mass_g       [90mint[39m [31m3750[39m [33m3800[39m [36m3250[39m [32m[7mNA[27m[39m [35m3450[39m [34m3650[39m
       sex               [90mfct[39m [31mmale[39m [33mfemale[39m [36mfemale[39m [32m[7mNA[27m[39m [35mfemale[39m [34mmale[39m
-      year              [90mint[39m [31m2007[39m [33m2007[39m [36m2007[39m [32m2007[39m [35m2007[39m [34m2007[39m 
+      year              [90mint[39m [31m2007[39m [33m2007[39m [36m2007[39m [32m2007[39m [35m2007[39m [34m2007[39m
 
 ---
 
     Code
       spData::nz
     Output
-      [90msf[39m [90m[16, 7][39m 
+      [90msf[39m [90m[16, 7][39m
       [90mactive geometry column: geom (MULTIPOLYGON)
       crs: 2193 (NZGD2000 / New Zealand Transverse Mercator 2000)
-      crs unit: metre[39m 
+      crs unit: metre[39m
       Name          [90mchr[39m [31mNorthland[39m [33mAuckland[39m [36mWaikato[39m [32mBay of Plenty[39m [35m[39m[34m[39m[1m~[22m
       Island        [90mchr[39m [31mNorth[39m [33mNorth[39m [36mNorth[39m [32mNorth[39m [35mNorth[39m [34mNorth[39m
       Land_area     [90mdbl[39m [31m12500.561149[39m [33m4941.572557[39m [36m23900.036383[39m [32m120[39m[35m[39m[34m[39m[1m~[22m
       Population    [90mdbl[39m [31m175500[39m [33m1657200[39m [36m460100[39m [32m299900[39m [35m48500[39m [34m164000[39m
       Median_income [90mint[39m [31m23400[39m [33m29600[39m [36m27900[39m [32m26200[39m [35m24400[39m [34m26100[39m
       Sex_ratio     [90mdbl[39m [31m0.942453[39m [33m0.944286[39m [36m0.95205[39m [32m0.928039[39m [35m0.9349[39m[34m[39m[1m~[22m
-      geom          [90msfc[39m [31mMPOLY 1,784B[39m [33mMPOLY 2,288B[39m [36mMPOLY 2,376B[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m 
+      geom          [90msfc[39m [31mMPOLY 1,784B[39m [33mMPOLY 2,288B[39m [36mMPOLY 2,376B[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
 
 ---
 
     Code
       data.table::as.data.table(palmerpenguins::penguins)
     Output
-      [90mdata.table[39m [90m[344, 8][39m 
+      [90mdata.table[39m [90m[344, 8][39m
       species           [90mfct[39m [31mAdelie[39m [33mAdelie[39m [36mAdelie[39m [32mAdelie[39m [35mAdelie[39m [34mAd[39m[1m~[22m
       island            [90mfct[39m [31mTorgersen[39m [33mTorgersen[39m [36mTorgersen[39m [32mTorgers[39m[35m[39m[34m[39m[1m~[22m
       bill_length_mm    [90mdbl[39m [31m39.1[39m [33m39.5[39m [36m40.3[39m [32m[7mNA[27m[39m [35m36.7[39m [34m39.3[39m
@@ -61,7 +61,7 @@
       flipper_length_mm [90mint[39m [31m181[39m [33m186[39m [36m195[39m [32m[7mNA[27m[39m [35m193[39m [34m190[39m
       body_mass_g       [90mint[39m [31m3750[39m [33m3800[39m [36m3250[39m [32m[7mNA[27m[39m [35m3450[39m [34m3650[39m
       sex               [90mfct[39m [31mmale[39m [33mfemale[39m [36mfemale[39m [32m[7mNA[27m[39m [35mfemale[39m [34mmale[39m
-      year              [90mint[39m [31m2007[39m [33m2007[39m [36m2007[39m [32m2007[39m [35m2007[39m [34m2007[39m 
+      year              [90mint[39m [31m2007[39m [33m2007[39m [36m2007[39m [32m2007[39m [35m2007[39m [34m2007[39m
 
 ---
 

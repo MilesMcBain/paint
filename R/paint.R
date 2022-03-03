@@ -40,7 +40,7 @@ paint.data.frame <- function(
   ...
 ) {
   if (ncol(df) == 0) {
-    cat(paint_head(df), "\n", sep = "")
+    output(paint_head(df), "\n")
     return(invisible(df))
   }
   col_types <- lapply(df, paint_col_type)
@@ -70,15 +70,15 @@ paint.data.frame <- function(
   name <- paint_name(name)
   header <- trimws(paste(name, paint_head(df))) # the name is used for nested data.frames
   meta <- paint_meta(df)
-  cat(header, "\n")
-  if (!is.null(meta)) cat(meta, "\n")
-  cat(col_block, "\n")
+  output(header, "\n")
+  if (!is.null(meta)) output(meta, "\n")
+  output(col_block, "\n")
   # paint nested data frames
   nested_data_frame_idxs <- which(trimws(crayon::strip_style(col_types)) == "df")
   lapply(
     nested_data_frame_idxs,
     function(idx) {
-      cat("\n")
+      output("\n")
       paint(df[[idx]], name = names(df)[idx], palette = palette)
     }
   )
