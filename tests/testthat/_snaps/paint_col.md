@@ -60,7 +60,7 @@
     Code
       paint_col(head(sf::st_geometry(spData::nz)), palette = rainbow_6())
     Output
-      [1] "\033[31mMPOLY 1,784B\033[39m \033[33mMPOLY 2,288B\033[39m \033[36mMPOLY 2,376B\033[39m \033[32mMPOLY 1,800B\033[39m \033[35mMPOLY 1,416B\033[39m \033[34mMPOLY 1,848B\033[39m"
+      [1] "\033[31mMPOLY 1.78kB\033[39m \033[33mMPOLY 2.29kB\033[39m \033[36mMPOLY 2.38kB\033[39m \033[32mMPOLY 1.80kB\033[39m \033[35mMPOLY 1.42kB\033[39m \033[34mMPOLY 1.85kB\033[39m"
 
 ---
 

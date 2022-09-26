@@ -43,7 +43,7 @@ paint.data.frame <- function(
     output(paint_head(df), "\n")
     return(invisible(df))
   }
-  col_types <- lapply(df, paint_col_type)
+  col_types <- vapply(df, paint_col_type, character(1))
   col_names <- colnames(df)
   col_dims <- lapply(df, dim)
   rows_to_paint <-

@@ -13,7 +13,7 @@
       Population    [90mdbl[39m [31m175500[39m [33m1657200[39m [36m460100[39m [32m299900[39m [35m48500[39m [34m164000[39m
       Median_income [90mint[39m [31m23400[39m [33m29600[39m [36m27900[39m [32m26200[39m [35m24400[39m [34m26100[39m
       Sex_ratio     [90mdbl[39m [31m0.942453[39m [33m0.944286[39m [36m0.95205[39m [32m0.928039[39m [35m0.9349[39m[34m[39m[1m~[22m
-      geom          [90msfc[39m [31mMPOLY 1,784B[39m [33mMPOLY 2,288B[39m [36mMPOLY 2,376B[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
+      geom          [90msfc[39m [31mMPOLY 1.78kB[39m [33mMPOLY 2.29kB[39m [36mMPOLY 2.38kB[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
 
 ---
 
@@ -30,7 +30,7 @@
       Population    [90mdbl[39m [31m175500[39m [33m1657200[39m [36m460100[39m [32m299900[39m [35m48500[39m [34m164000[39m
       Median_income [90mint[39m [31m23400[39m [33m29600[39m [36m27900[39m [32m26200[39m [35m24400[39m [34m26100[39m
       Sex_ratio     [90mdbl[39m [31m0.942453[39m [33m0.944286[39m [36m0.95205[39m [32m0.928039[39m [35m0.9349[39m[34m[39m[1m~[22m
-      geom          [90msfc[39m [31mMPOLY 1,784B[39m [33mMPOLY 2,288B[39m [36mMPOLY 2,376B[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
+      geom          [90msfc[39m [31mMPOLY 1.78kB[39m [33mMPOLY 2.29kB[39m [36mMPOLY 2.38kB[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
 
 ---
 
@@ -42,7 +42,7 @@
       crs: 2154 (RGF93 / Lambert-93)
       crs unit: metre[39m
       name     [90mchr[39m [31mMarne[39m [33mSeine[39m [36mYonne[39m
-      geometry [90msfc[39m [31mMLINES 3,440B[39m [33mMLINES 6,288B[39m [36mMLINES 2,720B[39m
+      geometry [90msfc[39m [31mMLINES 3.44kB[39m [33mMLINES 6.29kB[39m [36mMLINES 2.72kB[39m
 
 ---
 
@@ -59,7 +59,7 @@
       Population    [90mdbl[39m [31m175500[39m [33m1657200[39m [36m460100[39m [32m299900[39m [35m48500[39m [34m164000[39m
       Median_income [90mint[39m [31m23400[39m [33m29600[39m [36m27900[39m [32m26200[39m [35m24400[39m [34m26100[39m
       Sex_ratio     [90mdbl[39m [31m0.942453[39m [33m0.944286[39m [36m0.95205[39m [32m0.928039[39m [35m0.9349[39m[34m[39m[1m~[22m
-      geom          [90msfc[39m [31mMPOLY 1,784B[39m [33mMPOLY 2,288B[39m [36mMPOLY 2,376B[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
+      geom          [90msfc[39m [31mMPOLY 1.78kB[39m [33mMPOLY 2.29kB[39m [36mMPOLY 2.38kB[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
 
 ---
 
@@ -71,7 +71,7 @@
       crs: [31m[7mNA[27m[90m
       crs unit: [31m[7mNA[27m[90m[39m
       num  [90mdbl[39m [31m1[39m [33m2[39m [36m3[39m
-      geom [90msfc[39m [31mPOINT 424B[39m [33mLINES 600B[39m [36mMPOLY 1,784B[39m
+      geom [90msfc[39m [31mPOINT 424B[39m [33mLINES 600B[39m [36mMPOLY 1.78kB[39m
 
 ---
 
@@ -89,5 +89,5 @@
       Population    [90mdbl[39m [31m175500[39m [33m1657200[39m [36m460100[39m [32m299900[39m [35m48500[39m [34m164000[39m
       Median_income [90mint[39m [31m23400[39m [33m29600[39m [36m27900[39m [32m26200[39m [35m24400[39m [34m26100[39m
       Sex_ratio     [90mdbl[39m [31m0.942453[39m [33m0.944286[39m [36m0.95205[39m [32m0.928039[39m [35m0.9349[39m[34m[39m[1m~[22m
-      geom          [90msfc[39m [31mMPOLY 1,784B[39m [33mMPOLY 2,288B[39m [36mMPOLY 2,376B[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
+      geom          [90msfc[39m [31mMPOLY 1.78kB[39m [33mMPOLY 2.29kB[39m [36mMPOLY 2.38kB[39m [32mMP[39m[35m[39m[34m[39m[1m~[22m
 
