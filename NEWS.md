@@ -1,3 +1,8 @@
+# 0.3.2
+
+* Minor usability fix for RStudio
+* Make compatible with more strict type checking in dev `{dplyr}`.
+
 # 0.1.6
 
 * Compatibility with changes in {crayon}.
