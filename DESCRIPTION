@@ -1,6 +1,6 @@
 Package: paint
 Title: paint data.frames summaries in colour 
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: 
     person(given = "Miles",
            family = "McBain",
@@ -24,6 +24,7 @@ Imports:
     pryr,
     purrr,
     RColorBrewer,
+    stringi,
     utils,
     vctrs,
     viridisLite

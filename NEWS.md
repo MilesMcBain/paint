@@ -1,7 +1,6 @@
-# 0.3.2
+# 0.1.7
 
-* Minor usability fix for RStudio
-* Make compatible with more strict type checking in dev `{dplyr}`.
+* Handle characters with invalid encoding by attempting conversion with `stringi::stri_trans_general`. This will result invalid characters being replaces by a missing char question mark. Previously these crashed out `{paint}`, failing in `{crayon}`.
 
 # 0.1.6
 

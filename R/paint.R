@@ -50,7 +50,7 @@ paint.data.frame <- function(
     utils::head(
       offset(df, start_row),
       getOption("paint_n_rows", length(palette))
-    )
+    ) 
   cols <- mapply(
     paint_col,
     rows_to_paint,
@@ -61,10 +61,11 @@ paint.data.frame <- function(
     col_names <- align_str(col_names)
     col_types <- align_str(col_types)
   }
-  col_lines <- paste0(col_names, " ", col_types, " ", cols)
+  sanitised_cols <- vapply(cols, sanitise_col, character(1))
+  col_lines <- paste0(col_names, " ", col_types, " ", sanitised_cols)
   cropped_lines <- crop_lines(col_lines, getOption("paint_max_width", 60))
   col_block <- paste0(
-    sanitise_text(cropped_lines),
+    cropped_lines,
     collapse = "\n"
   )
   name <- paint_name(name)
