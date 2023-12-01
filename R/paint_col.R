@@ -18,6 +18,12 @@ paint_col.vctrs_vctr <- function(col, ..., palette) {
 }
 
 #' @export
+paint_col.wk_vctr <- paint_col.vctrs_vctr
+
+#' @export
+paint_col.wk_rcrd <- paint_col.vctrs_vctr
+
+#' @export
 paint_col.data.frame <- function(col, dim, palette) {
   dims <- paste0("[", paste0(dim, collapse = ", "), "]")
   crayon::silver(paste("data.frame", dims))
