@@ -73,3 +73,23 @@ test_that("paint_col", {
   .S3method("format", "tuple", function(...) NextMethod())
   .S3method("format", "percent", function(...) NextMethod())
 })
+
+test_that("paint_col works with wk_vctrs", {
+  skip_if_not_installed("wk")
+
+  # check that wk_vctrs paint without error
+  wkt <- wk::wkt(c("POINT (1 2)", "MULTIPOINT (0 0, 1 1)"))
+
+  expect_equal(
+    paint_col(wkt, palette = list(crayon::red)),
+    crayon::red(paste0(format(wkt), collapse = " "))
+  )
+
+  # check wk_rcrd paint without error
+  xy <- wk::xy(1:5, 1:5)
+
+  expect_equal(
+    paint_col(xy, palette = list(crayon::red)),
+    crayon::red(paste0(format(xy), collapse = " "))
+  )
+})
