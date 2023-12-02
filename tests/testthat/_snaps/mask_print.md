@@ -108,20 +108,20 @@
       palmerpenguins::penguins
     Output
       [38;5;246m# A tibble: 344 x 8[39m
-         species island    bill_length_mm bill_depth_mm flipper_~1 body_~2 sex    year
-         [3m[38;5;246m<fct>[39m[23m   [3m[38;5;246m<fct>[39m[23m              [3m[38;5;246m<dbl>[39m[23m         [3m[38;5;246m<dbl>[39m[23m      [3m[38;5;246m<int>[39m[23m   [3m[38;5;246m<int>[39m[23m [3m[38;5;246m<fct>[39m[23m [3m[38;5;246m<int>[39m[23m
-      [38;5;250m 1[39m Adelie  Torgersen           39.1          18.7        181    [4m3[24m750 male   [4m2[24m007
-      [38;5;250m 2[39m Adelie  Torgersen           39.5          17.4        186    [4m3[24m800 fema~  [4m2[24m007
-      [38;5;250m 3[39m Adelie  Torgersen           40.3          18          195    [4m3[24m250 fema~  [4m2[24m007
-      [38;5;250m 4[39m Adelie  Torgersen           [31mNA[39m            [31mNA[39m           [31mNA[39m      [31mNA[39m [31mNA[39m     [4m2[24m007
-      [38;5;250m 5[39m Adelie  Torgersen           36.7          19.3        193    [4m3[24m450 fema~  [4m2[24m007
-      [38;5;250m 6[39m Adelie  Torgersen           39.3          20.6        190    [4m3[24m650 male   [4m2[24m007
-      [38;5;250m 7[39m Adelie  Torgersen           38.9          17.8        181    [4m3[24m625 fema~  [4m2[24m007
-      [38;5;250m 8[39m Adelie  Torgersen           39.2          19.6        195    [4m4[24m675 male   [4m2[24m007
-      [38;5;250m 9[39m Adelie  Torgersen           34.1          18.1        193    [4m3[24m475 [31mNA[39m     [4m2[24m007
-      [38;5;250m10[39m Adelie  Torgersen           42            20.2        190    [4m4[24m250 [31mNA[39m     [4m2[24m007
-      [38;5;246m# ... with 334 more rows, and abbreviated variable names 1: flipper_length_mm,[39m
-      [38;5;246m#   2: body_mass_g[39m
+         species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+         [3m[38;5;246m<fct>[39m[23m   [3m[38;5;246m<fct>[39m[23m              [3m[38;5;246m<dbl>[39m[23m         [3m[38;5;246m<dbl>[39m[23m             [3m[38;5;246m<int>[39m[23m       [3m[38;5;246m<int>[39m[23m
+      [38;5;250m 1[39m Adelie  Torgersen           39.1          18.7               181        [4m3[24m750
+      [38;5;250m 2[39m Adelie  Torgersen           39.5          17.4               186        [4m3[24m800
+      [38;5;250m 3[39m Adelie  Torgersen           40.3          18                 195        [4m3[24m250
+      [38;5;250m 4[39m Adelie  Torgersen           [31mNA[39m            [31mNA[39m                  [31mNA[39m          [31mNA[39m
+      [38;5;250m 5[39m Adelie  Torgersen           36.7          19.3               193        [4m3[24m450
+      [38;5;250m 6[39m Adelie  Torgersen           39.3          20.6               190        [4m3[24m650
+      [38;5;250m 7[39m Adelie  Torgersen           38.9          17.8               181        [4m3[24m625
+      [38;5;250m 8[39m Adelie  Torgersen           39.2          19.6               195        [4m4[24m675
+      [38;5;250m 9[39m Adelie  Torgersen           34.1          18.1               193        [4m3[24m475
+      [38;5;250m10[39m Adelie  Torgersen           42            20.2               190        [4m4[24m250
+      [38;5;246m# i 334 more rows[39m
+      [38;5;246m# i 2 more variables: sex <fct>, year <int>[39m
 
 ---
 
