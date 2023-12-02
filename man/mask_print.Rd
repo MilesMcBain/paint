@@ -26,9 +26,9 @@ loaded, e.g. after \code{library(tibble)}. This can be disabled with \code{optio
 }
 \section{Functions}{
 \itemize{
-\item \code{unmask_print}: the reverse operation to \code{mask_print}: return all print methods to defaults.
-}}
+\item \code{unmask_print()}: the reverse operation to \code{mask_print}: return all print methods to defaults.
 
+}}
 \seealso{
 \code{\link[=unpaint]{unpaint()}} A method for calling the default print functions once for a single object or .Last.value.
 }
