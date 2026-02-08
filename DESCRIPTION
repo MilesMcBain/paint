@@ -30,6 +30,7 @@ Imports:
     viridisLite
 Suggests:
     spData,
+    nycflights13,
     tibble,
     tsibble,
     data.table,

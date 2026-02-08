@@ -64,7 +64,7 @@ paint_meta.sf <- function(df) {
       "crs unit: ",
       red_if_na(crs_units)
     )
-  
+
   NextMethod(incoming = crayon::silver(meta_string))
 }
 
@@ -81,7 +81,7 @@ paint_meta.data.table <- function(df) {
 
 #' @export
 paint_meta.tbl_ts <- function(df, incoming = NULL) {
-  key <- tsibble::key(df)
+  keys <- paste0(tsibble::key(df), collapse = ", ")
   index <- tsibble::index(df)
   interval <-
     if (tsibble::is_regular(df)) format(tsibble::interval(df)) else "irregular"
@@ -90,7 +90,7 @@ paint_meta.tbl_ts <- function(df, incoming = NULL) {
     crayon::silver(
       paste0(
         "key: ",
-        key,
+        keys,
         "\n",
         "index: ",
         index,
