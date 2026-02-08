@@ -1,3 +1,10 @@
+# 0.3.0
+
+* replace {pryr} dependency in favour of {lobstr}.
+* fix edge cases in printing list cols
+* add additional keyboard controls to ipaint
+* improve painting speed, via row slicing, particularly noticable with ipaint.
+
 # 0.1.7
 
 * Handle characters with invalid encoding by attempting conversion with `stringi::stri_trans_general`. This will result invalid characters being replaces by a missing char question mark. Previously these crashed out `{paint}`, failing in `{crayon}`.
