@@ -46,11 +46,14 @@ paint.data.frame <- function(
   col_types <- vapply(df, paint_col_type, character(1))
   col_names <- colnames(df)
   col_dims <- lapply(df, dim)
+  if (is.null(start_row)) {
+    start_row <- 1
+  }
   rows_to_paint <-
-    utils::head(
-      offset(df, start_row),
-      getOption("paint_n_rows", length(palette))
-    ) 
+    slice_rows(df,
+      start = start_row,
+      finish = start_row + getOption("paint_n_rows", length(palette)) - 1
+    )
   cols <- mapply(
     paint_col,
     rows_to_paint,
@@ -86,9 +89,7 @@ paint.data.frame <- function(
   invisible(df)
 }
 
-offset <- function(df, n) {
-  if (is.null(n)) {
-    return(df)
-  }
-  df[seq(n, nrow(df)), ]
+slice_rows <- function(df, start, finish) {
+  finish <- min(finish, nrow(df))
+  df[seq(start, finish), ]
 }
