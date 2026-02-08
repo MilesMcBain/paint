@@ -1,10 +1,10 @@
-#' stub 
+#' stub
 #'
 #' The stub is the bit after the name in the object title e.g. tibble [row,
 #' cols] - stub is the dimensions summary after "tibble"
 #' @noRd
 
-paint_stub <- function(object) UseMethod("paint_stub") 
+paint_stub <- function(object) UseMethod("paint_stub")
 
 #' @export
 paint_stub.default <- function(df) {
@@ -33,7 +33,7 @@ paint_stub.array <- function(array) {
 
 #' @export
 paint_stub.sfg <- function(sfg) {
-  size <- utils::capture.output(print(pryr::object_size(sfg)))
+  size <- utils::capture.output(print(lobstr::obj_sizes(sfg)))
 	trimmed_size <- gsub("\\s", "", size)
 	paint_stub_template(trimmed_size)
 }
