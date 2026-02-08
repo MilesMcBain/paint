@@ -3,7 +3,7 @@
 #' This function calls [paint()] repeatedly on a dataframe,
 #' updating the rows shown in response to keypresses.
 #'
-#' It will only work in terminals supported by {keypress} - Not many!
+#' It will only work in terminals supported by `{keypress}` - Not many!
 #'
 #' Controls:
 #'

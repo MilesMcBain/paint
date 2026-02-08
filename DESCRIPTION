@@ -39,5 +39,7 @@ Suggests:
     dplyr,
     tidyr,
     palmerpenguins,
-    rlang
+    wk,
+    rlang,
+    lubridate
 Config/testthat/edition: 3

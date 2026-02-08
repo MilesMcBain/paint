@@ -1,4 +1,4 @@
-# multiplication works
+# tsibble works
 
     Code
       paint(tsibble::pedestrian)
@@ -61,27 +61,27 @@
     Code
       paint(flights_tsbl)
     Output
-      tsibble [6, 20]
-      key: carrier, flight
-      index: sched_dep_datetime [irregular]
-      year               int  2013 2013 2013 2013 2013 2013
-      month              int  1 1 1 1 1 1
-      day                int  1 1 1 1 1 1
-      dep_time           int  542 544 554 517 554 533
-      sched_dep_time     int  540 545 600 515 558 529
-      dep_delay          dbl  2 -1 -6 2 -4 4
-      arr_time           int  923 1004 812 830 740 850
-      sched_arr_time     int  850 1022 837 819 728 830
-      arr_delay          dbl  33 -18 -25 11 12 20
-      carrier            chr  AA B6 DL UA UA UA
-      flight             int  1141 725 461 1545 1696 1714
-      tailnum            chr  N619AA N804JB N668DN N14228 N39463 N24211
-      origin             chr  JFK JFK LGA EWR EWR LGA
-      dest               chr  MIA BQN ATL IAH ORD IAH
-      air_time           dbl  160 183 116 227 150 227
-      distance           dbl  1089 1576 762 1400 719 1416
-      hour               dbl  5 5 6 5 5 5
-      minute             dbl  40 45 0 15 58 29
-      time_hour          dttm 2013-01-01 05:00:00 2013-01-01 05:00:00 2013-01-01 06:0~
-      sched_dep_datetime dttm 2013-01-01 05:40:00 2013-01-01 05:45:00 2013-01-01 06:0~
+      [90mtsibble[39m [90m[6, 20][39m
+      [90mkey: carrier, flight
+      index: sched_dep_datetime [irregular][39m
+      year               [90mint[39m  [31m2013[39m [33m2013[39m [36m2013[39m [32m2013[39m [35m2013[39m [34m2013[39m
+      month              [90mint[39m  [31m1[39m [33m1[39m [36m1[39m [32m1[39m [35m1[39m [34m1[39m
+      day                [90mint[39m  [31m1[39m [33m1[39m [36m1[39m [32m1[39m [35m1[39m [34m1[39m
+      dep_time           [90mint[39m  [31m542[39m [33m544[39m [36m554[39m [32m517[39m [35m554[39m [34m533[39m
+      sched_dep_time     [90mint[39m  [31m540[39m [33m545[39m [36m600[39m [32m515[39m [35m558[39m [34m529[39m
+      dep_delay          [90mdbl[39m  [31m2[39m [33m-1[39m [36m-6[39m [32m2[39m [35m-4[39m [34m4[39m
+      arr_time           [90mint[39m  [31m923[39m [33m1004[39m [36m812[39m [32m830[39m [35m740[39m [34m850[39m
+      sched_arr_time     [90mint[39m  [31m850[39m [33m1022[39m [36m837[39m [32m819[39m [35m728[39m [34m830[39m
+      arr_delay          [90mdbl[39m  [31m33[39m [33m-18[39m [36m-25[39m [32m11[39m [35m12[39m [34m20[39m
+      carrier            [90mchr[39m  [31mAA[39m [33mB6[39m [36mDL[39m [32mUA[39m [35mUA[39m [34mUA[39m
+      flight             [90mint[39m  [31m1141[39m [33m725[39m [36m461[39m [32m1545[39m [35m1696[39m [34m1714[39m
+      tailnum            [90mchr[39m  [31mN619AA[39m [33mN804JB[39m [36mN668DN[39m [32mN14228[39m [35mN39463[39m [34m[39m[1m~[22m
+      origin             [90mchr[39m  [31mJFK[39m [33mJFK[39m [36mLGA[39m [32mEWR[39m [35mEWR[39m [34mLGA[39m
+      dest               [90mchr[39m  [31mMIA[39m [33mBQN[39m [36mATL[39m [32mIAH[39m [35mORD[39m [34mIAH[39m
+      air_time           [90mdbl[39m  [31m160[39m [33m183[39m [36m116[39m [32m227[39m [35m150[39m [34m227[39m
+      distance           [90mdbl[39m  [31m1089[39m [33m1576[39m [36m762[39m [32m1400[39m [35m719[39m [34m1416[39m
+      hour               [90mdbl[39m  [31m5[39m [33m5[39m [36m6[39m [32m5[39m [35m5[39m [34m5[39m
+      minute             [90mdbl[39m  [31m40[39m [33m45[39m [36m0[39m [32m15[39m [35m58[39m [34m29[39m
+      time_hour          [90mdttm[39m [31m2013-01-01 05:00:00[39m [33m2013-01-01 05:0[39m[36m[39m[32m[39m[35m[39m[34m[39m[1m~[22m
+      sched_dep_datetime [90mdttm[39m [31m2013-01-01 05:40:00[39m [33m2013-01-01 05:4[39m[36m[39m[32m[39m[35m[39m[34m[39m[1m~[22m
 

@@ -6,6 +6,9 @@
 \usage{
 sanitise_col(col)
 }
+\arguments{
+\item{col}{the column to sanitise, a vector}
+}
 \description{
 Attempt to transform chars in encodings we don't understand, rather than crash crayon.
 }

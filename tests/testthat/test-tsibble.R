@@ -1,4 +1,19 @@
-test_that("multiplication works", {
+test_that("tsibble works", {
+  flights <- head(nycflights13::flights)
+  flights$sched_dep_datetime <-
+    with(
+      flights,
+      lubridate::make_datetime(year, month, day, hour, minute, tz = "America/New_York")
+    )
+
+  flights_tsbl <-
+    tsibble::as_tsibble(
+      flights,
+      key = c(carrier, flight),
+      index = sched_dep_datetime,
+      regular = FALSE
+    )
+
   rlang::with_options(
     cli.num_colors = 256,
     paint_n_rows = NULL,
@@ -13,26 +28,12 @@ test_that("multiplication works", {
       expect_snapshot(paint(
         tsibble::as_tsibble(tsibble::pedestrian, regular = FALSE)
       ))
+      expect_snapshot(
+        paint(flights_tsbl)
+      )
     }
   )
 
-  flights <-
-    nycflights13::flights |>
-    head() |>
-    mutate(
-      sched_dep_datetime =
-        make_datetime(year, month, day, hour, minute, tz = "America/New_York")
-    )
 
-  flights_tsbl <- flights %>%
-    as_tsibble(
-      key = c(carrier, flight),
-      index = sched_dep_datetime,
-      regular = FALSE
-    )
-
-  expect_snapshot(
-    paint(flights_tsbl)
-  )
 
 })

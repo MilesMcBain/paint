@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{rainbow_text}
 \alias{rainbow_text}
-\title{Colour some text with a {paint} palette}
+\title{Colour some text with a \code{{paint}} palette}
 \usage{
 rainbow_text(msg)
 }
