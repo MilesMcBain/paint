@@ -163,6 +163,7 @@
       data.table::as.data.table(palmerpenguins::penguins)
     Output
              species    island bill_length_mm bill_depth_mm flipper_length_mm
+              <fctr>    <fctr>          <num>         <num>             <int>
         1:    Adelie Torgersen           39.1          18.7               181
         2:    Adelie Torgersen           39.5          17.4               186
         3:    Adelie Torgersen           40.3          18.0               195
@@ -174,16 +175,17 @@
       342: Chinstrap     Dream           49.6          18.2               193
       343: Chinstrap     Dream           50.8          19.0               210
       344: Chinstrap     Dream           50.2          18.7               198
-           body_mass_g    sex year
-        1:        3750   male 2007
-        2:        3800 female 2007
-        3:        3250 female 2007
-        4:          NA   <NA> 2007
-        5:        3450 female 2007
-       ---                        
-      340:        4000   male 2009
-      341:        3400 female 2009
-      342:        3775   male 2009
-      343:        4100   male 2009
-      344:        3775 female 2009
+           body_mass_g    sex  year
+                 <int> <fctr> <int>
+        1:        3750   male  2007
+        2:        3800 female  2007
+        3:        3250 female  2007
+        4:          NA   <NA>  2007
+        5:        3450 female  2007
+       ---                         
+      340:        4000   male  2009
+      341:        3400 female  2009
+      342:        3775   male  2009
+      343:        4100   male  2009
+      344:        3775 female  2009
 
