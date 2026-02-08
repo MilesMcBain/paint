@@ -11,8 +11,19 @@ ipaint(df = .Last.value)
 }
 \description{
 This function calls \code{\link[=paint]{paint()}} repeatedly on a dataframe,
-updating the rows shown in response to left or right keypresses.
+updating the rows shown in response to keypresses.
 }
 \details{
 It will only work in terminals supported by {keypress} - Not many!
+
+Controls:
+\itemize{
+\item 'l' or 'right arrow' forward 1 row
+\item 'h' or 'left arrow' backward 1 row
+\item 'enter' or 'escape' quit interactive painting
+\item 'b' backward 1 page of rows
+\item 'f' forward 1 page of rows
+\item 'G' jump to final page of rows
+\item 'g' jump to first page of rows
+}
 }
